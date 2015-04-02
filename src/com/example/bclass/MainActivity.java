@@ -1,5 +1,7 @@
 package com.example.bclass;
 
+import com.parse.ParseObject;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +13,10 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+
+		ParseObject testObject = new ParseObject("Test");
+		testObject.put("xx", "main");
+		testObject.saveInBackground();
 	}
 
 	@Override
