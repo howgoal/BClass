@@ -8,9 +8,20 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.bclass.MainActivity" >
 
-    <TextView
+    <Button
+        android:id="@+id/btn_teacher"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="80dp"
+        android:text="我是老師" />
+
+    <Button
+        android:id="@+id/btn_student"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="61dp"
+        android:text="我是學生" />
 
 </RelativeLayout>

@@ -4,8 +4,12 @@ import com.parse.ParseObject;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends Activity {
 
@@ -13,11 +17,44 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
-		ParseObject testObject = new ParseObject("Test");
-		testObject.put("xx", "main");
-		testObject.saveInBackground();
+		init();
+		/*
+		 * ParseObject testObject = new ParseObject("Test");
+		 * testObject.put("xx", "main"); testObject.saveInBackground();
+		 */
 	}
+
+	public void init() {
+		Button btn_teacher = (Button) findViewById(R.id.btn_teacher);
+		Button btn_student = (Button) findViewById(R.id.btn_student);
+		btn_teacher.setOnClickListener(modeChoose);
+		btn_student.setOnClickListener(modeChoose);
+
+	}
+
+	private OnClickListener modeChoose = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+
+			Log.i("!", "in");
+			switch (v.getId()) {
+			case R.id.btn_teacher:
+				Log.i("!", "teacher");
+				setContentView(R.layout.activity_main_teacher);
+				break;
+			case R.id.btn_student:
+				Log.i("!", "student");
+				setContentView(R.layout.activity_main_student);
+				break;
+
+			default:
+				break;
+			}
+
+		}
+	};
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
