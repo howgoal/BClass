@@ -5,6 +5,7 @@ import com.parse.ParseObject;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,11 +19,7 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
-		ParseObject testObjects = new ParseObject("TestObjects");
-		testObjects.put("foo", "bars");
-		testObjects.saveInBackground();
 		init();
-
 	}
 
 	public void init() {
@@ -74,5 +71,11 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public void onBackPressed() {
+		setContentView(R.layout.activity_main);
+		init();
 	}
 }
