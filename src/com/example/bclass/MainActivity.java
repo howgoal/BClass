@@ -3,6 +3,7 @@ package com.example.bclass;
 import com.parse.ParseObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -40,11 +41,17 @@ public class MainActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.btn_teacher:
 				Log.i("!", "teacher");
-				setContentView(R.layout.activity_main_teacher);
+				Intent intent_teacher = new Intent();
+				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
+				startActivity(intent_teacher); 
+				MainActivity.this.finish(); 
 				break;
 			case R.id.btn_student:
 				Log.i("!", "student");
-				setContentView(R.layout.activity_main_student);
+				Intent intent_student = new Intent();
+				intent_student.setClass(MainActivity.this, StudentActivity.class);
+				startActivity(intent_student); 
+				MainActivity.this.finish(); 
 				break;
 
 			default:
@@ -73,9 +80,4 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	@Override
-	public void onBackPressed() {
-		setContentView(R.layout.activity_main);
-		init();
-	}
 }

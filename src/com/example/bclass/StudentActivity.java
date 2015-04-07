@@ -3,12 +3,15 @@ package com.example.bclass;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.os.Build;
 
 public class StudentActivity extends Activity {
@@ -17,8 +20,42 @@ public class StudentActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_student);
+		init();
 	}
 
+	public void init() {
+		Button btn_SBack = (Button) findViewById(R.id.btn_SBack);
+		Button btn_ToVote = (Button) findViewById(R.id.btn_SToVote);
+		btn_SBack.setOnClickListener(modeChange);
+		btn_ToVote.setOnClickListener(modeChange);
+	}
+	
+	private OnClickListener modeChange = new OnClickListener() {
+		
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			switch (v.getId()) {
+			case R.id.btn_SBack:
+				Intent intent_back = new Intent();
+				intent_back.setClass(StudentActivity.this, MainActivity.class);
+				startActivity(intent_back); 
+				StudentActivity.this.finish();  
+				break;
+			case R.id.btn_SToVote:
+//				Intent intent_vote = new Intent();
+//				intent_vote.setClass(StudentActivity.this, SVoteActivity.class);
+//				startActivity(intent_vote); 
+//				StudentActivity.this.finish(); 
+				break;
+
+			default:
+				break;
+			}
+			 
+		}
+	};
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -39,5 +76,13 @@ public class StudentActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.setClass(StudentActivity.this, MainActivity.class);
+		startActivity(intent); 
+		StudentActivity.this.finish(); 
+		init();
+	}
 
 }
