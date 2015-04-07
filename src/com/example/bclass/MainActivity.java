@@ -17,11 +17,12 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		ParseObject testObjects = new ParseObject("TestObjects");
+		testObjects.put("foo", "bars");
+		testObjects.saveInBackground();
 		init();
-		/*
-		 * ParseObject testObject = new ParseObject("Test");
-		 * testObject.put("xx", "main"); testObject.saveInBackground();
-		 */
+
 	}
 
 	public void init() {
