@@ -3,6 +3,7 @@ package com.example.bclass;
 import com.parse.ParseObject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -43,8 +44,11 @@ public class MainActivity extends Activity {
 				setContentView(R.layout.activity_main_teacher);
 				break;
 			case R.id.btn_student:
-				Log.i("!", "student");
-				setContentView(R.layout.activity_main_student);
+//				Log.i("!", "student");
+//				setContentView(R.layout.activity_main_student);
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, TVoteActivity.class);
+				startActivity(intent);
 				break;
 
 			default:
