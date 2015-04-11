@@ -37,21 +37,17 @@ public class MainActivity extends Activity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 
-			Log.i("!", "in");
 			switch (v.getId()) {
 			case R.id.btn_teacher:
-				Log.i("!", "teacher");
 				Intent intent_teacher = new Intent();
 				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
 				startActivity(intent_teacher); 
 				MainActivity.this.finish(); 
 				break;
 			case R.id.btn_student:
-//				Log.i("!", "student");
-//				setContentView(R.layout.activity_main_student);
-				Intent intent = new Intent();
-				intent.setClass(MainActivity.this, TVoteActivity.class);
-				startActivity(intent);
+				Intent intent_student = new Intent();
+				intent_student.setClass(MainActivity.this, StudentActivity.class);
+				startActivity(intent_student);
 				break;
 
 			default:

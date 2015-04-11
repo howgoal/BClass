@@ -68,7 +68,10 @@ public class TVoteActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-
+			Intent intent = new Intent();
+			intent.setClass(TVoteActivity.this, NewVoteActivity.class);
+			startActivity(intent); 
+			TVoteActivity.this.finish(); 
 		}
 
 	};
