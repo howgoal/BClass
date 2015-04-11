@@ -1,4 +1,8 @@
-package com.example.bclass;
+package bclassStudent;
+
+import bclassMain.MainActivity;
+
+import com.example.bclass.R;
 
 import android.app.Activity;
 import android.app.ActionBar;

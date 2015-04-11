@@ -1,5 +1,9 @@
-package com.example.bclass;
+package bclassMain;
 
+import bclassStudent.StudentActivity;
+import bclassTeacher.TeacherActivity;
+
+import com.example.bclass.R;
 import com.parse.ParseObject;
 
 import android.app.Activity;
