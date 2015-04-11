@@ -1,5 +1,7 @@
 package bclassMain;
 
+import java.sql.Date;
+
 import bclassTeacher.TVoteActivity;
 
 import com.example.bclass.R;
@@ -41,6 +43,7 @@ public class NewVoteActivity extends Activity {
 	private EditText vote_detail;
 	private Spinner spinnerChoice;
 	private Spinner spinnerTime;
+	private Date curDate;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -82,11 +85,14 @@ public class NewVoteActivity extends Activity {
 			case R.id.voteOK:
 				title = vote_title.getText().toString();
 				detail = vote_detail.getText().toString();
+				curDate = new Date(System.currentTimeMillis());
+				//Log.e("!!!", curDate.toString());
 				ParseObject vote = new ParseObject("Vote");
 				vote.put("description", detail);
 				vote.put("name", title);
-				vote.put("choise", choice_OK);
+				vote.put("choice", choice_OK);
 				vote.put("time", time_OK);
+				vote.put("utc8", curDate);
 				vote.put("result", "");
 				vote.saveInBackground();
 				
@@ -117,12 +123,12 @@ public class NewVoteActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (parent.getId()) {
 			case R.id.spinnerChoice:
-				Log.i("@@", choice[position]);
+				//Log.i("@@", choice[position]);
 				choice_OK = Integer.parseInt(choice[position]);
 				//Toast.makeText(testContext, "Choice: "+choice[position], Toast.LENGTH_SHORT).show();
 				break;
 			case R.id.spinnerTime:
-				Log.i("@@", time[position]);
+				//Log.i("@@", time[position]);
 				time_OK = Integer.parseInt(time[position]);
 				//Toast.makeText(testContext, "Time: "+time[position], Toast.LENGTH_SHORT).show();
 				break;
@@ -157,5 +163,14 @@ public class NewVoteActivity extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
+	}
+	
+	@Override
+	public void onBackPressed() {
+		Intent intent = new Intent();
+		intent.setClass(NewVoteActivity.this, TVoteActivity.class);
+		startActivity(intent); 
+		NewVoteActivity.this.finish(); 
+		init();
 	}
 }

@@ -14,7 +14,6 @@
         android:layout_marginRight="10dp"
         android:hint="標題"
         android:ems="10" >
-
         <requestFocus />
     </EditText>
 
