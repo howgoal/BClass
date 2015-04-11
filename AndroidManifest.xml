@@ -40,7 +40,6 @@
         </activity>
         <activity
             android:name="bclbclassMain.NewVoteActivity"
-            title_activity_newvote=""
             android:label="string" >
         </activity>
         <activity
@@ -59,6 +58,7 @@
             android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
+        <activity android:name="noteSystem.NoteActivity"></activity>
     </application>
 
 </manifest>
