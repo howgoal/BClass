@@ -41,10 +41,22 @@
         <activity
             android:name="com.example.bclass.NewVoteActivity"
             android:label="@string/title_activity_newvote" >
-		</activity>
-		<activity
+        </activity>
+        <activity
             android:name="com.example.bclass.GoVoteActivity"
             android:label="@string/title_activity_go_vote" >
+        </activity>
+        <activity
+            android:name="com.example.bclass.SVoteActivity"
+            android:label="@string/title_activity_svote" >
+        </activity>
+        <activity
+            android:name="com.example.bclass.NewExamActivity"
+            android:label="@string/title_activity_new_exam" >
+        </activity>
+        <activity
+            android:name="com.example.bclass.TExamActivity"
+            android:label="@string/title_activity_texam" >
         </activity>
     </application>
 
