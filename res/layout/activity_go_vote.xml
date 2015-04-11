@@ -39,25 +39,22 @@
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.04"
                 android:text="說明 :"
                 android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/textDesrcipt"
-                android:layout_width="wrap_content"
-                android:layout_height="152dp"
-                android:layout_weight="0.14"
+                android:layout_width="200dp"
+                android:layout_height="100dp"
                 android:text="..."
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="216dp"
-            android:layout_weight="0.97" >
+            android:layout_height="216dp" >
 
             <LinearLayout
                 android:id="@+id/layoutCheckBox"
@@ -70,7 +67,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.52"
             android:orientation="horizontal" >
 
             <TextView
@@ -86,7 +82,31 @@
                 android:layout_height="wrap_content"
                 android:text="2014/04/05"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
+
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="確定" />
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="取消" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>
