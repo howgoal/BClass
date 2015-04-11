@@ -1,6 +1,7 @@
 package bclassTeacher;
 
 import bclassMain.MainActivity;
+import bclassMain.NewExamActivity;
 
 import com.example.bclass.R;
 
@@ -31,8 +32,10 @@ public class TeacherActivity extends Activity {
 	public void init() {
 		Button btn_TBack = (Button) findViewById(R.id.btn_TBack);
 		Button btn_ToVote = (Button) findViewById(R.id.btn_TToVote);
+		Button btn_testExam = (Button) findViewById(R.id.btn_testExam); // test
 		btn_TBack.setOnClickListener(modeChange);
 		btn_ToVote.setOnClickListener(modeChange);
+		btn_testExam.setOnClickListener(modeChange); // test
 	}
 	
 	public OnClickListener modeChange = new OnClickListener() {
@@ -44,14 +47,17 @@ public class TeacherActivity extends Activity {
 			case R.id.btn_TBack:
 				Intent intent_back = new Intent();
 				intent_back.setClass(TeacherActivity.this, MainActivity.class);
-				startActivity(intent_back); 
-				TeacherActivity.this.finish();  
+				startActivity(intent_back);
 				break;
 			case R.id.btn_TToVote:
 				Intent intent_vote = new Intent();
 				intent_vote.setClass(TeacherActivity.this, TVoteActivity.class);
 				startActivity(intent_vote); 
-				TeacherActivity.this.finish(); 
+				break;
+			case R.id.btn_testExam: // test
+				Intent intent_exam = new Intent();
+				intent_exam.setClass(TeacherActivity.this, NewExamActivity.class);
+				startActivity(intent_exam); 
 				break;
 			default:
 				break;

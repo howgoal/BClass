@@ -14,6 +14,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import android.R.integer;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -49,6 +50,7 @@ public class TVoteActivity extends Activity {
 	HashMap<String, String> voteItem;
 	SimpleDateFormat sdf;
 	VoteAdapter adapter;
+	Date curDate;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +76,8 @@ public class TVoteActivity extends Activity {
 			// TODO Auto-generated method stub
 			Intent intent = new Intent();
 			intent.setClass(TVoteActivity.this, NewVoteActivity.class);
-			startActivity(intent); 
-			TVoteActivity.this.finish(); 
+			startActivity(intent);
+			TVoteActivity.this.finish();
 		}
 
 	};
@@ -89,7 +91,6 @@ public class TVoteActivity extends Activity {
 
 			try {
 				vote_list = query.find();
-				Log.i("!!", String.valueOf(query.count()));
 			} catch (ParseException e) {
 
 			}
@@ -118,27 +119,24 @@ public class TVoteActivity extends Activity {
 				for (ParseObject in : vote_list) {
 					String name = in.getString("name");
 					String objectId = in.getObjectId();
-					Date date = in.getCreatedAt();
-					String dateString = sdf.format(date);
-					Log.i("!!", dateString);
+					Date creatDate = in.getCreatedAt();
+					long creatLong = creatDate.getTime();
+					String dateString = sdf.format(creatDate);
+					int time = in.getInt("time");
 					voteItem = new HashMap<String, String>();
 
 					voteItem.put("name", name);
 					voteItem.put("day", dateString);
 					voteItem.put("objectId", objectId);
+					voteItem.put("time", String.valueOf(time));
+					voteItem.put("creatLong", String.valueOf(creatLong));
+
 					voteList.add(voteItem);
 				}
 			}
 
 			adapter = new VoteAdapter(TVoteActivity.this);
 			listView1.setAdapter(adapter);
-			/*
-			 * myAdapter = new SimpleAdapter(MainActivity.this, fridgeList,
-			 * R.layout.fridge_list_item, new String[] { "name", "expiration",
-			 * "due_day", "day" }, new int[] { R.id.material_name,
-			 * R.id.material_expiration, R.id.due_day, R.id.day });
-			 * listView1.setAdapter(myAdapter);
-			 */
 
 			TVoteActivity.this.progressDialog.dismiss();
 		}
@@ -149,6 +147,7 @@ public class TVoteActivity extends Activity {
 		public TextView vote_name;
 		public TextView vote_day;
 		public ImageButton vote_detail;
+		public ImageButton vote_result;
 	}
 
 	private class VoteAdapter extends BaseAdapter {
@@ -190,25 +189,54 @@ public class TVoteActivity extends Activity {
 					.findViewById(R.id.vote_day);
 			myviews.vote_detail = (ImageButton) convertView
 					.findViewById(R.id.vote_detail);
+			myviews.vote_result = (ImageButton) convertView
+					.findViewById(R.id.vote_result);
 
 			myviews.vote_name.setText(voteList.get(position).get("name"));
 			myviews.vote_day.setText(voteList.get(position).get("day"));
 			myviews.vote_detail.setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View v) {
-					Intent intent = new Intent();
-					intent.setClass(TVoteActivity.this, GoVoteActivity.class);
-					Bundle bundle = new Bundle();
-					bundle.putString("objectId",
-							voteList.get(position).get("objectId"));
-					// 將Bundle物件assign給intent
-					intent.putExtras(bundle);
-					startActivity(intent);
+					String time = voteList.get(position).get("time");
+					String creatLong = voteList.get(position).get("creatLong");
+					Log.i("time", time);
+					Log.i("creatLong", creatLong);
+
+					if (checkDeadLine(creatLong, time)) {
+						Intent intent = new Intent();
+						intent.setClass(TVoteActivity.this,
+								GoVoteActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putString("objectId", voteList.get(position)
+								.get("objectId"));
+						// 將Bundle物件assign給intent
+						intent.putExtras(bundle);
+						startActivity(intent);
+					} else {
+						Toast.makeText(TVoteActivity.this, "投票時間已過",
+								Toast.LENGTH_SHORT).show();
+					}
+
 				}
 			});
 
 			return convertView;
 		}
+
+		public boolean checkDeadLine(String creatLong, String time) {
+			curDate = new Date(System.currentTimeMillis());
+			long plusTime = Long.parseLong(time);
+			long startTime = Long.parseLong(creatLong);
+			long curTime = curDate.getTime();
+			Log.i("curTime", String.valueOf(curTime));
+			if (curTime < (startTime + plusTime * 60 * 1000)) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
+
 	}
 
 	@Override
@@ -218,7 +246,6 @@ public class TVoteActivity extends Activity {
 		if (intent == null) {
 			return;
 		}
-		Toast.makeText(TVoteActivity.this, "感謝您的投票", Toast.LENGTH_SHORT);
 	}
 
 	@Override

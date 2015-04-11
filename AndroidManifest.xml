@@ -39,26 +39,33 @@
             android:label="@string/title_activity_teacher" >
         </activity>
         <activity
-            android:name="bclbclassMain.NewVoteActivity"
-            android:label="string" >
+            android:name="bclassMain.NewVoteActivity"
+            android:label="@string/title_activity_newvote" >
         </activity>
         <activity
-            android:name="bclbclassMain.GoVoteActivity"
-            android:label="string=" >
+            android:name="bclassMain.GoVoteActivity"
+            android:label="@string/title_activity_go_vote" >
         </activity>
         <activity
             android:name="bclassStudent.SVoteActivity"
             android:label="@string/title_activity_svote" >
         </activity>
         <activity
-            android:name="bclassbclassMain.NewExamActivity"
-            android:label="string=" >
+            android:name="bclassMain.NewExamActivity"
+            android:label="@string/title_activity_new_exam" >
         </activity>
         <activity
             android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
+<<<<<<< HEAD
         <activity android:name="noteSystem.NoteActivity"></activity>
+=======
+        <activity
+            android:name="bclassMain.NewAdviseActivity"
+            android:label="@string/title_activity_new_advise" >
+        </activity>
+>>>>>>> master
     </application>
 
 </manifest>
