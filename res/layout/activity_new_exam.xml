@@ -4,5 +4,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.bclass.NewExamActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
 
+	 <EditText
+        android:id="@+id/examTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="標題"
+        android:ems="10" >
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/examDetail"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="題目"
+        android:gravity="top"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <TextView
+        android:id="@+id/examChoice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="50dp"
+        android:text="有幾個選項" />
+
+    <Spinner
+        android:id="@+id/spExamChoice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_marginLeft="150dp" />
+
+    <Button
+        android:id="@+id/examOK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="50dp"
+        android:text="OK" />
+    
+    <Button
+        android:id="@+id/examCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="150dp"
+        android:text="Cancel" />
+    
+</FrameLayout>
