@@ -91,7 +91,6 @@ public class TVoteActivity extends Activity {
 
 			try {
 				vote_list = query.find();
-				Log.i("!!", String.valueOf(query.count()));
 			} catch (ParseException e) {
 
 			}
@@ -120,18 +119,17 @@ public class TVoteActivity extends Activity {
 				for (ParseObject in : vote_list) {
 					String name = in.getString("name");
 					String objectId = in.getObjectId();
-					Date creatDate = in.getDate("utc8");
+					Date creatDate = in.getCreatedAt();
 					long creatLong = creatDate.getTime();
 					String dateString = sdf.format(creatDate);
 					int time = in.getInt("time");
-					Log.i("!!", dateString);
 					voteItem = new HashMap<String, String>();
 
 					voteItem.put("name", name);
 					voteItem.put("day", dateString);
 					voteItem.put("objectId", objectId);
 					voteItem.put("time", String.valueOf(time));
-					voteItem.put("creatAt", String.valueOf(creatLong));
+					voteItem.put("creatLong", String.valueOf(creatLong));
 
 					voteList.add(voteItem);
 				}
@@ -200,7 +198,10 @@ public class TVoteActivity extends Activity {
 				@Override
 				public void onClick(View v) {
 					String time = voteList.get(position).get("time");
-					String creatLong = voteList.get(position).get("creatAt");
+					String creatLong = voteList.get(position).get("creatLong");
+					Log.i("time", time);
+					Log.i("creatLong", creatLong);
+
 					if (checkDeadLine(creatLong, time)) {
 						Intent intent = new Intent();
 						intent.setClass(TVoteActivity.this,
@@ -212,7 +213,6 @@ public class TVoteActivity extends Activity {
 						intent.putExtras(bundle);
 						startActivity(intent);
 					} else {
-						Log.i("!", "投票時間已過");
 						Toast.makeText(TVoteActivity.this, "投票時間已過",
 								Toast.LENGTH_SHORT).show();
 					}
@@ -222,17 +222,19 @@ public class TVoteActivity extends Activity {
 
 			return convertView;
 		}
-	}
 
-	public boolean checkDeadLine(String time, String during) {
-		curDate = new Date(System.currentTimeMillis());
-		long plusTime = Long.parseLong(during) * 60 * 1000;
-		long startTime = Long.parseLong(time);
-		long curTime = curDate.getTime();
-		if (curTime < (startTime + plusTime)) {
-			return true;
-		} else {
-			return false;
+		public boolean checkDeadLine(String creatLong, String time) {
+			curDate = new Date(System.currentTimeMillis());
+			long plusTime = Long.parseLong(time);
+			long startTime = Long.parseLong(creatLong);
+			long curTime = curDate.getTime();
+			Log.i("curTime", String.valueOf(curTime));
+			if (curTime < (startTime + plusTime * 60 * 1000)) {
+				return true;
+			} else {
+				return false;
+			}
+
 		}
 
 	}
@@ -244,7 +246,6 @@ public class TVoteActivity extends Activity {
 		if (intent == null) {
 			return;
 		}
-		Toast.makeText(TVoteActivity.this, "感謝您的投票", Toast.LENGTH_SHORT);
 	}
 
 	@Override
