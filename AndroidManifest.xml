@@ -12,13 +12,13 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name="com.example.bclass.BrightApplication"
+        android:name="bclassMain.BrightApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.bclass.MainActivity"
+            android:name="bclassMain.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,35 +27,36 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.example.bclass.TVoteActivity"
+            android:name="bclassTeacher.TVoteActivity"
             android:label="@string/title_activity_tvote" >
         </activity>
         <activity
-            android:name="com.example.bclass.StudentActivity"
+            android:name="bclassStudent.StudentActivity"
             android:label="@string/title_activity_student" >
         </activity>
         <activity
-            android:name="com.example.bclass.TeacherActivity"
+            android:name="bclassTeacher.TeacherActivity"
             android:label="@string/title_activity_teacher" >
         </activity>
         <activity
-            android:name="com.example.bclass.NewVoteActivity"
-            android:label="@string/title_activity_newvote" >
+            android:name="bclbclassMain.NewVoteActivity"
+            title_activity_newvote=""
+            android:label="string" >
         </activity>
         <activity
-            android:name="com.example.bclass.GoVoteActivity"
-            android:label="@string/title_activity_go_vote" >
+            android:name="bclbclassMain.GoVoteActivity"
+            android:label="string=" >
         </activity>
         <activity
-            android:name="com.example.bclass.SVoteActivity"
+            android:name="bclassStudent.SVoteActivity"
             android:label="@string/title_activity_svote" >
         </activity>
         <activity
-            android:name="com.example.bclass.NewExamActivity"
-            android:label="@string/title_activity_new_exam" >
+            android:name="bclassbclassMain.NewExamActivity"
+            android:label="string=" >
         </activity>
         <activity
-            android:name="com.example.bclass.TExamActivity"
+            android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
     </application>

@@ -1,4 +1,4 @@
-package com.example.bclass;
+package bclassMain;
 
 import android.app.Application;
 

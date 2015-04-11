@@ -1,4 +1,6 @@
-package com.example.bclass;
+package bclassTeacher;
+
+import com.example.bclass.R;
 
 import android.app.Activity;
 import android.app.ActionBar;
@@ -11,20 +13,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 
-public class SVoteActivity extends Activity {
+public class TExamActivity extends Activity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_svote);
-
+		setContentView(R.layout.activity_texam);
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.svote, menu);
+		getMenuInflater().inflate(R.menu.texam, menu);
 		return true;
 	}
 

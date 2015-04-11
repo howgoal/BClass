@@ -1,5 +1,8 @@
-package com.example.bclass;
+package bclassMain;
 
+import bclassTeacher.TVoteActivity;
+
+import com.example.bclass.R;
 import com.parse.ParseObject;
 
 import android.app.Activity;
