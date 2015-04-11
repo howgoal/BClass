@@ -1,10 +1,15 @@
 package com.example.bclass;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 import com.parse.FindCallback;
 import com.parse.GetCallback;
@@ -18,6 +23,7 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -26,10 +32,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.os.Build;
 
 public class GoVoteActivity extends Activity {
@@ -41,7 +50,11 @@ public class GoVoteActivity extends Activity {
 	SimpleDateFormat sdf;
 	Bundle bundle;
 	String objectId;
-	private Dialog progressDialog;;
+	Dialog progressDialog;
+	Button btnSubmit, btnCancel;
+	ParseObject todos;
+	HashSet<Integer> votessSet;
+	int[] voteArray;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +84,7 @@ public class GoVoteActivity extends Activity {
 						voteDate = sdf.format(object.getCreatedAt());
 						voteNumber = object.getInt("choise");
 						voteTime = object.getInt("time");
+						todos = object;
 						Log.i("!!", voteName);
 					}
 					init();
@@ -94,7 +108,6 @@ public class GoVoteActivity extends Activity {
 		@Override
 		protected void onPostExecute(Void result) {
 			// Put the list of todos into the list view
-
 			GoVoteActivity.this.progressDialog.dismiss();
 		}
 
@@ -105,6 +118,12 @@ public class GoVoteActivity extends Activity {
 		textViewDescrip = (TextView) findViewById(R.id.textDesrcipt);
 		textViewDate = (TextView) findViewById(R.id.textDate);
 		layoutCheckBox = (LinearLayout) findViewById(R.id.layoutCheckBox);
+		btnSubmit = (Button) findViewById(R.id.btnSubmit);
+		btnCancel = (Button) findViewById(R.id.btnCancel);
+		voteArray = new int[voteNumber + 1];
+		votessSet = new HashSet<Integer>();
+		btnSubmit.setOnClickListener(voteBtnFunction);
+		btnCancel.setOnClickListener(voteBtnFunction);
 		textViewTitle.setText(voteName);
 		textViewDescrip.setText(voteDescript);
 		textViewDate.setText(voteDate);
@@ -112,9 +131,88 @@ public class GoVoteActivity extends Activity {
 		for (int i = 1; i < voteNumber + 1; i++) {
 			CheckBox checkBox = new CheckBox(this);
 			checkBox.setText("第" + i + "組");
+			checkBox.setOnClickListener(voteCheck);
+			checkBox.setId(i);
 			layoutCheckBox.addView(checkBox);
 		}
+		for (int j = 0; j < voteArray.length; j++) {
+			voteArray[j] = 0;
+		}
 	}
+
+	private OnClickListener voteCheck = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			if (((CheckBox) v).isChecked()) {
+				votessSet.add(v.getId());
+				Log.i("votes", votessSet.toString());
+				// Toast.makeText(GoVoteActivity.this, votessSet.toString(),
+				// Toast.LENGTH_SHORT);
+			} else {
+				votessSet.remove(v.getId());
+			}
+		}
+
+	};
+
+	private OnClickListener voteBtnFunction = new OnClickListener() {
+
+		@Override
+		public void onClick(View v) {
+			// TODO Auto-generated method stub
+			switch (v.getId()) {
+			case R.id.btnSubmit:
+				// todos.put("name", extras.getString("name"));
+				if (votessSet.size() < 1) {
+					Toast.makeText(GoVoteActivity.this, "請記得投票",
+							Toast.LENGTH_SHORT);
+				} else {
+					Iterator iterator = votessSet.iterator();
+					while (iterator.hasNext()) {
+						voteArray[(Integer) iterator.next()] += 1;
+						Log.i("data", Arrays.toString(voteArray));
+					}
+
+				}
+
+				new RemoteDataTask() {
+					protected Void doInBackground(Void... params) {
+						try {
+							for (int i = 0; i < voteArray.length; i++) {
+								if (voteArray[i] > 0) {
+									String result = todos.getString("result");
+									result = result + String.valueOf("," + i);
+									todos.put("result", result);
+								}
+							}
+
+							todos.save();
+						} catch (ParseException e) {
+						}
+						super.doInBackground();
+						return null;
+					}
+
+					@Override
+					protected void onPostExecute(Void result) {
+						// Put the list of todos into the list view
+						Intent intent = new Intent();
+						setResult(RESULT_OK, intent);
+						finish();
+					}
+				}.execute();
+				break;
+			case R.id.btnCancel:
+				finish();
+				break;
+
+			default:
+				break;
+			}
+		}
+	};
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
