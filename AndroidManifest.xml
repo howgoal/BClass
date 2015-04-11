@@ -63,12 +63,18 @@
             android:name="noteSystem.NoteActivity">
             
         </activity>
-
         <activity
             android:name="bclassMain.NewAdviseActivity"
             android:label="@string/title_activity_new_advise" >
         </activity>
-
+        <activity
+            android:name="bclassMain.ShowAdviseActivity"
+            android:label="@string/title_activity_show_advise" >
+        </activity>
+        <activity
+            android:name="bclassMain.ShowVoteActivity"
+            android:label="@string/title_activity_show_vote" >
+        </activity>
     </application>
 
 </manifest>

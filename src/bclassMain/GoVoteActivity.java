@@ -148,9 +148,6 @@ public class GoVoteActivity extends Activity {
 			// TODO Auto-generated method stub
 			if (((CheckBox) v).isChecked()) {
 				votessSet.add(v.getId());
-				Log.i("votes", votessSet.toString());
-				// Toast.makeText(GoVoteActivity.this, votessSet.toString(),
-				// Toast.LENGTH_SHORT);
 			} else {
 				votessSet.remove(v.getId());
 			}
