@@ -27,10 +27,8 @@ public class TeacherActivity extends Activity {
 	public void init() {
 		Button btn_TBack = (Button) findViewById(R.id.btn_TBack);
 		Button btn_ToVote = (Button) findViewById(R.id.btn_TToVote);
-		Button btn_testButton = (Button) findViewById(R.id.btn_Test); // test
 		btn_TBack.setOnClickListener(modeChange);
 		btn_ToVote.setOnClickListener(modeChange);
-		btn_testButton.setOnClickListener(modeChange); // test
 	}
 	
 	public OnClickListener modeChange = new OnClickListener() {
@@ -51,13 +49,6 @@ public class TeacherActivity extends Activity {
 				startActivity(intent_vote); 
 				TeacherActivity.this.finish(); 
 				break;
-			case R.id.btn_Test: // test
-				Intent intent_test = new Intent();
-				intent_test.setClass(TeacherActivity.this, NewVoteActivity.class);
-				startActivity(intent_test); 
-				TeacherActivity.this.finish(); 
-				break;
-
 			default:
 				break;
 			}

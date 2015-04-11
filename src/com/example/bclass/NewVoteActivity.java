@@ -84,13 +84,15 @@ public class NewVoteActivity extends Activity {
 				vote.put("name", title);
 				vote.put("choise", choice_OK);
 				vote.put("time", time_OK);
+				vote.put("result", "");
 				vote.saveInBackground();
 				
 				Toast.makeText(NewVoteActivity.this, "資料已創建完成", Toast.LENGTH_SHORT).show();
-				vote_title.setText("");
-				vote_detail.setText("");
-				spinnerChoice.setSelection(0);
-				spinnerTime.setSelection(0);
+				
+				Intent intent_back = new Intent();
+				intent_back.setClass(NewVoteActivity.this, TVoteActivity.class);
+				startActivity(intent_back); 
+				NewVoteActivity.this.finish();  
 				break;
 			case R.id.voteCancel:
 				Intent intent_tvote = new Intent();
