@@ -41,7 +41,10 @@ public class MainActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.btn_teacher:
 				Log.i("!", "teacher");
-				setContentView(R.layout.activity_main_teacher);
+				Intent intent_teacher = new Intent();
+				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
+				startActivity(intent_teacher); 
+				MainActivity.this.finish(); 
 				break;
 			case R.id.btn_student:
 //				Log.i("!", "student");
@@ -77,9 +80,4 @@ public class MainActivity extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 
-	@Override
-	public void onBackPressed() {
-		setContentView(R.layout.activity_main);
-		init();
-	}
 }
