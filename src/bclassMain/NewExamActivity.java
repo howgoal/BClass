@@ -1,4 +1,8 @@
-package com.example.bclass;
+package bclassMain;
+
+import bclassTeacher.TExamActivity;
+
+import com.example.bclass.R;
 
 import java.sql.Date;
 

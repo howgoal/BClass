@@ -1,4 +1,4 @@
-package com.example.bclass;
+package bclassTeacher;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -6,6 +6,10 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import bclassMain.GoVoteActivity;
+import bclassMain.NewVoteActivity;
+
+import com.example.bclass.R;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;

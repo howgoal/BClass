@@ -1,7 +1,10 @@
-package com.example.bclass;
+package bclassMain;
 
 import java.sql.Date;
 
+import bclassTeacher.TVoteActivity;
+
+import com.example.bclass.R;
 import com.parse.ParseObject;
 
 import android.app.Activity;

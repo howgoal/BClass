@@ -1,4 +1,4 @@
-package com.example.bclass;
+package bclassMain;
 
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import com.example.bclass.R;
 import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
