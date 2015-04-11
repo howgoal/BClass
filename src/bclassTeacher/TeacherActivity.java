@@ -47,20 +47,17 @@ public class TeacherActivity extends Activity {
 			case R.id.btn_TBack:
 				Intent intent_back = new Intent();
 				intent_back.setClass(TeacherActivity.this, MainActivity.class);
-				startActivity(intent_back); 
-				TeacherActivity.this.finish();  
+				startActivity(intent_back);
 				break;
 			case R.id.btn_TToVote:
 				Intent intent_vote = new Intent();
 				intent_vote.setClass(TeacherActivity.this, TVoteActivity.class);
 				startActivity(intent_vote); 
-				TeacherActivity.this.finish(); 
 				break;
 			case R.id.btn_testExam: // test
 				Intent intent_exam = new Intent();
 				intent_exam.setClass(TeacherActivity.this, NewExamActivity.class);
 				startActivity(intent_exam); 
-				TeacherActivity.this.finish(); 
 				break;
 			default:
 				break;

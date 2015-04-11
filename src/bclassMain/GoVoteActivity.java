@@ -61,7 +61,7 @@ public class GoVoteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_go_vote);
-		sdf = new SimpleDateFormat("yyyy/MM/dd hh:kk");
+		sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		bundle = this.getIntent().getExtras();
 		objectId = bundle.getString("objectId");
 		new RemoteDataTask().execute();
@@ -83,7 +83,7 @@ public class GoVoteActivity extends Activity {
 						voteName = object.getString("name");
 						voteDescript = object.getString("description");
 						voteDate = sdf.format(object.getCreatedAt());
-						voteNumber = object.getInt("choise");
+						voteNumber = object.getInt("choice");
 						voteTime = object.getInt("time");
 						todos = object;
 						Log.i("!!", voteName);

@@ -43,7 +43,6 @@ public class NewVoteActivity extends Activity {
 	private EditText vote_detail;
 	private Spinner spinnerChoice;
 	private Spinner spinnerTime;
-	private Date curDate;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +54,6 @@ public class NewVoteActivity extends Activity {
 	public void init() {
 		vote_title = (EditText) findViewById(R.id.voteTitle);
 		vote_detail = (EditText) findViewById(R.id.voteDetail);
-		TextView vote_choice = (TextView) findViewById(R.id.voteChoice);
-		TextView vote_time = (TextView) findViewById(R.id.voteTime);
 		Button btn_OK = (Button) findViewById(R.id.voteOK);
 		Button btn_cancel = (Button) findViewById(R.id.voteCancel);
 		spinnerChoice = (Spinner) findViewById(R.id.spinnerChoice);
@@ -85,14 +82,13 @@ public class NewVoteActivity extends Activity {
 			case R.id.voteOK:
 				title = vote_title.getText().toString();
 				detail = vote_detail.getText().toString();
-				curDate = new Date(System.currentTimeMillis());
+				//curDate = new Date(System.currentTimeMillis());
 				//Log.e("!!!", curDate.toString());
 				ParseObject vote = new ParseObject("Vote");
 				vote.put("description", detail);
 				vote.put("name", title);
 				vote.put("choice", choice_OK);
 				vote.put("time", time_OK);
-				vote.put("utc8", curDate);
 				vote.put("result", "");
 				vote.saveInBackground();
 				
