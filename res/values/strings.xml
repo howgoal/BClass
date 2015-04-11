@@ -13,5 +13,7 @@
     <string name="title_activity_new_exam">NewExamActivity</string>
     <string name="title_activity_texam">TExamActivity</string>
     <string name="title_activity_new_advise">NewAdviseActivity</string>
+    <string name="title_activity_show_advise">ShowAdviseActivity</string>
+    <string name="title_activity_show_vote">ShowVoteActivity</string>
 
 </resources>

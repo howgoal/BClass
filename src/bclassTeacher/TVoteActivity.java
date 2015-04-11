@@ -8,6 +8,8 @@ import java.util.List;
 
 import bclassMain.GoVoteActivity;
 import bclassMain.NewVoteActivity;
+import bclassMain.ShowAdviseActivity;
+import bclassMain.ShowVoteActivity;
 
 import com.example.bclass.R;
 import com.parse.ParseException;
@@ -215,6 +217,31 @@ public class TVoteActivity extends Activity {
 					} else {
 						Toast.makeText(TVoteActivity.this, "投票時間已過",
 								Toast.LENGTH_SHORT).show();
+					}
+
+				}
+			});
+			myviews.vote_result.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					String time = voteList.get(position).get("time");
+					String creatLong = voteList.get(position).get("creatLong");
+					Log.i("time", time);
+					Log.i("creatLong", creatLong);
+
+					if (checkDeadLine(creatLong, time)) {
+						Toast.makeText(TVoteActivity.this, "投票還沒結束",
+								Toast.LENGTH_SHORT).show();
+					} else {
+						Intent intent = new Intent();
+						intent.setClass(TVoteActivity.this,
+								ShowVoteActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putString("objectId", voteList.get(position)
+								.get("objectId"));
+						// 將Bundle物件assign給intent
+						intent.putExtras(bundle);
+						startActivity(intent);
 					}
 
 				}
