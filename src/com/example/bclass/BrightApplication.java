@@ -5,6 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseACL;
 import com.parse.ParseObject;
+import com.parse.ParseRole;
 import com.parse.ParseUser;
 
 public class BrightApplication extends Application {
@@ -21,7 +22,7 @@ public class BrightApplication extends Application {
 		ParseUser.enableAutomaticUser();
 		ParseACL defaultACL = new ParseACL();
 		// Optionally enable public read access.
-		// defaultACL.setPublicReadAccess(true);
+		defaultACL.setPublicReadAccess(true);
 		ParseACL.setDefaultACL(defaultACL, true);
 	}
 }

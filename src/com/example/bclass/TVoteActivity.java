@@ -80,9 +80,9 @@ public class TVoteActivity extends Activity {
 			ParseQuery<ParseObject> query = new ParseQuery<ParseObject>("Vote");
 			query.orderByDescending("createdAt");
 
-			Log.i("!!", "有");
 			try {
 				vote_list = query.find();
+				Log.i("!!", String.valueOf(query.count()));
 			} catch (ParseException e) {
 
 			}
@@ -202,6 +202,16 @@ public class TVoteActivity extends Activity {
 
 			return convertView;
 		}
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode,
+			Intent intent) {
+		super.onActivityResult(requestCode, resultCode, intent);
+		if (intent == null) {
+			return;
+		}
+		Toast.makeText(TVoteActivity.this, "感謝您的投票", Toast.LENGTH_SHORT);
 	}
 
 	@Override
