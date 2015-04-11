@@ -47,11 +47,11 @@ public class MainActivity extends Activity {
 				MainActivity.this.finish(); 
 				break;
 			case R.id.btn_student:
-				Log.i("!", "student");
-				Intent intent_student = new Intent();
-				intent_student.setClass(MainActivity.this, StudentActivity.class);
-				startActivity(intent_student); 
-				MainActivity.this.finish(); 
+//				Log.i("!", "student");
+//				setContentView(R.layout.activity_main_student);
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, TVoteActivity.class);
+				startActivity(intent);
 				break;
 
 			default:

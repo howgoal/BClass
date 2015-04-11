@@ -41,6 +41,10 @@
         <activity
             android:name="com.example.bclass.NewVoteActivity"
             android:label="@string/title_activity_newvote" >
+		</activity>
+		<activity
+            android:name="com.example.bclass.GoVoteActivity"
+            android:label="@string/title_activity_go_vote" >
         </activity>
     </application>
 

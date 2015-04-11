@@ -8,5 +8,6 @@
     <string name="title_activity_newvote">NewVoteActivity</string>
     <string name="title_activity_student">StudentActivity</string>
     <string name="title_activity_teacher">TeacherActivity</string>
+    <string name="title_activity_go_vote">GoVoteActivity</string>
 
 </resources>
