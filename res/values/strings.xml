@@ -9,5 +9,8 @@
     <string name="title_activity_student">StudentActivity</string>
     <string name="title_activity_teacher">TeacherActivity</string>
     <string name="title_activity_go_vote">GoVoteActivity</string>
+    <string name="title_activity_svote">SVoteActivity</string>
+    <string name="title_activity_new_exam">NewExamActivity</string>
+    <string name="title_activity_texam">TExamActivity</string>
 
 </resources>
