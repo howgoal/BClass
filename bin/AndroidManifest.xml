@@ -38,6 +38,10 @@
             android:name="com.example.bclass.TeacherActivity"
             android:label="@string/title_activity_teacher" >
         </activity>
+        <activity
+            android:name="com.example.bclass.NewVoteActivity"
+            android:label="@string/title_activity_newvote" >
+        </activity>
     </application>
 
 </manifest>
