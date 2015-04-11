@@ -12,5 +12,6 @@
     <string name="title_activity_svote">SVoteActivity</string>
     <string name="title_activity_new_exam">NewExamActivity</string>
     <string name="title_activity_texam">TExamActivity</string>
+    <string name="title_activity_new_advise">NewAdviseActivity</string>
 
 </resources>

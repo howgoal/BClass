@@ -58,6 +58,10 @@
             android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
+        <activity
+            android:name="bclassMain.NewAdviseActivity"
+            android:label="@string/title_activity_new_advise" >
+        </activity>
     </application>
 
 </manifest>
