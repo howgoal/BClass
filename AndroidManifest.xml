@@ -58,14 +58,17 @@
             android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
-<<<<<<< HEAD
-        <activity android:name="noteSystem.NoteActivity"></activity>
-=======
+
+        <activity 
+            android:name="noteSystem.NoteActivity">
+            
+        </activity>
+
         <activity
             android:name="bclassMain.NewAdviseActivity"
             android:label="@string/title_activity_new_advise" >
         </activity>
->>>>>>> master
+
     </application>
 
 </manifest>
