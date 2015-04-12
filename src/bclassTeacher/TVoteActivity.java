@@ -59,7 +59,7 @@ public class TVoteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tvote);
-
+		getActionBar().hide(); 
 		sdf = new SimpleDateFormat("yyyy/MM/dd");
 		init();
 		new RemoteDataTask().execute();
