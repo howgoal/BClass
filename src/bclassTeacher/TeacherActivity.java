@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.os.Build;
 
 public class TeacherActivity extends Activity {
@@ -30,9 +31,9 @@ public class TeacherActivity extends Activity {
 	}
 	
 	public void init() {
-		Button btn_TBack = (Button) findViewById(R.id.btn_TBack);
-		Button btn_ToVote = (Button) findViewById(R.id.btn_TToVote);
-		Button btn_testExam = (Button) findViewById(R.id.btn_testExam); // test
+		ImageButton btn_TBack = (ImageButton) findViewById(R.id.btn_TBack);
+		ImageButton btn_ToVote = (ImageButton) findViewById(R.id.btn_TToVote);
+		ImageButton btn_testExam = (ImageButton) findViewById(R.id.btn_testExam); // test
 		btn_TBack.setOnClickListener(modeChange);
 		btn_ToVote.setOnClickListener(modeChange);
 		btn_testExam.setOnClickListener(modeChange); // test
