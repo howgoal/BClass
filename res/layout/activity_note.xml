@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8b9dc3"
+    android:dividerHeight="10dp"
+    android:orientation="vertical"
+
+
+	>
+
+    <LinearLayout
+        android:id="@+id/note_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:orientation="horizontal" >
+        
+    <ImageButton
+        android:id="@+id/note_buttonGoBack"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
+        android:src="@drawable/custom_btn_orange" />
+
+    <ImageButton
+        android:id="@+id/note_buttonCreate"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
+        android:src="@drawable/custom_btn_orange" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/note_listView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@null"
+        android:dividerHeight="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
+
+    </ListView>
+
+</LinearLayout>

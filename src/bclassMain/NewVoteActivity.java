@@ -101,7 +101,7 @@ public class NewVoteActivity extends Activity {
 				break;
 			case R.id.voteCancel:
 				Intent intent_tvote = new Intent();
-				intent_tvote.setClass(NewVoteActivity.this, TVoteActivity.class);
+				intent_tvote.setClass(NewVoteActivity.this, bclassTeacher.TVoteActivity.class);
 				startActivity(intent_tvote); 
 				NewVoteActivity.this.finish(); 
 				break;

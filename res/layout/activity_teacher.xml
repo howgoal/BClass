@@ -1,44 +1,79 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="bclassTeacher.TeacherActivity"
-    tools:ignore="MergeRootFrame" >
+    tools:ignore="MergeRootFrame" 
+    android:background="@drawable/home_back">
 
-    <TextView
-        android:id="@+id/textView1"
+    <ImageButton
+        android:id="@+id/btn_TAdvice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Teacher" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="#00000000"
+        android:paddingLeft="15dp"
+        android:scaleType="fitXY"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:src="@drawable/btn_advice" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_TBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="80dp"
-        android:text="Back" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="#00000000"
+        android:paddingRight="15dp"
+        android:scaleType="fitXY"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:src="@drawable/btn_back" />
 
-    <Button
+    <ImageButton
         android:id="@+id/btn_TToVote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="80dp"
-        android:layout_marginLeft="100dp"
-        android:text="Vote" />
-    
-    <Button
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/btn_testExam"
+        android:background="#00000000"
+        android:paddingBottom="30dp"
+        android:paddingRight="15dp"
+        android:scaleType="fitXY"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:src="@drawable/btn_vote" />
+
+    <ImageButton
         android:id="@+id/btn_testExam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="121dp"
+        android:background="#00000000"
+        android:paddingBottom="40dp"
+        android:paddingLeft="15dp"
+        android:scaleType="fitXY"
+        android:scaleX="0.8"
+        android:scaleY="0.8"
+        android:src="@drawable/btn_testexam" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_TToVote"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="50dp"
-        android:text="TestExam" />
+        android:paddingTop="20dp"
+        android:scaleType="fitXY"
+        android:scaleX="0.8"
+        android:scaleY="0.7"
+        android:src="@drawable/title_teacher" />
 
-
-</FrameLayout>
-
+</RelativeLayout>

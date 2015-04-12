@@ -16,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
 
@@ -23,16 +24,18 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		getActionBar().hide();
 		init();
 	}
 
 	public void init() {
-		Button btn_teacher = (Button) findViewById(R.id.btn_teacher);
-		Button btn_student = (Button) findViewById(R.id.btn_student);
+		
+		ImageButton btn_teacher = (ImageButton) findViewById(R.id.btn_teacher);
+		ImageButton btn_student = (ImageButton) findViewById(R.id.btn_student);
 		btn_teacher.setOnClickListener(modeChoose);
 		btn_student.setOnClickListener(modeChoose);
-
+		
+	
 	}
 
 	private OnClickListener modeChoose = new OnClickListener() {

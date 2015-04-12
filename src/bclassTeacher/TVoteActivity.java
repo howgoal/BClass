@@ -8,8 +8,11 @@ import java.util.List;
 
 import bclassMain.GoVoteActivity;
 import bclassMain.NewVoteActivity;
+import bclassMain.ShowAdviseActivity;
+import bclassMain.ShowVoteActivity;
 
 import com.example.bclass.R;
+import com.example.bclass.R.color;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -42,7 +45,7 @@ import android.os.Build;
 public class TVoteActivity extends Activity {
 
 	ListView listView1;
-	Button btnCreatVote;
+	ImageButton btnCreatVote;
 	private List<ParseObject> vote_list;
 	private Dialog progressDialog;
 	SimpleAdapter myAdapter;
@@ -56,7 +59,7 @@ public class TVoteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tvote);
-
+		getActionBar().hide(); 
 		sdf = new SimpleDateFormat("yyyy/MM/dd");
 		init();
 		new RemoteDataTask().execute();
@@ -65,7 +68,7 @@ public class TVoteActivity extends Activity {
 
 	public void init() {
 		listView1 = (ListView) findViewById(android.R.id.list);
-		btnCreatVote = (Button) findViewById(R.id.btnCreatVote);
+		btnCreatVote = (ImageButton) findViewById(R.id.btnCreatVote);
 		btnCreatVote.setOnClickListener(creatVote);
 	}
 
@@ -215,6 +218,31 @@ public class TVoteActivity extends Activity {
 					} else {
 						Toast.makeText(TVoteActivity.this, "投票時間已過",
 								Toast.LENGTH_SHORT).show();
+					}
+
+				}
+			});
+			myviews.vote_result.setOnClickListener(new View.OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					String time = voteList.get(position).get("time");
+					String creatLong = voteList.get(position).get("creatLong");
+					Log.i("time", time);
+					Log.i("creatLong", creatLong);
+
+					if (checkDeadLine(creatLong, time)) {
+						Toast.makeText(TVoteActivity.this, "投票還沒結束",
+								Toast.LENGTH_SHORT).show();
+					} else {
+						Intent intent = new Intent();
+						intent.setClass(TVoteActivity.this,
+								ShowVoteActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putString("objectId", voteList.get(position)
+								.get("objectId"));
+						// 將Bundle物件assign給intent
+						intent.putExtras(bundle);
+						startActivity(intent);
 					}
 
 				}

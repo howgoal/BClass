@@ -1,5 +1,6 @@
 package bclassStudent;
 
+import noteSystem.NoteActivity;
 import bclassMain.MainActivity;
 
 import com.example.bclass.R;
@@ -31,9 +32,11 @@ public class StudentActivity extends Activity {
 		Button btn_SBack = (Button) findViewById(R.id.btn_SBack);
 		Button btn_ToVote = (Button) findViewById(R.id.btn_SToVote);
 		Button testAdvise = (Button) findViewById(R.id.testAdvise); // test
+		Button btn_SToNote = (Button) findViewById(R.id.btn_SToNote);
 		btn_SBack.setOnClickListener(modeChange);
 		btn_ToVote.setOnClickListener(modeChange);
 		testAdvise.setOnClickListener(modeChange); // test
+		btn_SToNote.setOnClickListener(modeChange);
 	}
 	
 	private OnClickListener modeChange = new OnClickListener() {
@@ -57,6 +60,12 @@ public class StudentActivity extends Activity {
 				Intent intent = new Intent();
 				intent.setClass(StudentActivity.this, NewAdviseActivity.class);
 				startActivity(intent);  
+				break;
+			case R.id.btn_SToNote:
+				Intent intent_Note = new Intent();
+				intent_Note.setClass(StudentActivity.this, NoteActivity.class);
+				startActivity(intent_Note); 
+				StudentActivity.this.finish();  
 				break;
 			default:
 				break;

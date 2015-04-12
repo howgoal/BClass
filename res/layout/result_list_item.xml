@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/FrameLayout1"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    
+    android:background="#f0f0f0"
     android:padding="5dip" >
 
     <LinearLayout
@@ -11,30 +10,32 @@
         android:layout_height="50dp" >
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-10dp"
+            android:orientation="vertical"
+            android:paddingTop="10dp" >
+
+        </LinearLayout>
+
+        <LinearLayout
             android:id="@+id/LinearLayout1"
-            android:layout_width="130dp"
+            android:layout_width="110dp"
             android:layout_height="match_parent"
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/vote_name"
+                android:id="@+id/team_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginTop="10dp"
                 android:text="Name"
                 android:textColor="#040404"
                 android:textSize="25dip"
                 android:textStyle="bold"
                 android:typeface="sans" />
 
-            <TextView
-                android:id="@+id/vote_day"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Date"
-                android:textColor="#343434"
-                android:textSize="15dip" />
         </LinearLayout>
 
         <LinearLayout
@@ -46,34 +47,26 @@
             android:orientation="horizontal"
             android:paddingTop="5dp" >
 
+            <TextView
+                android:id="@+id/team_votes"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingLeft="10dp"
+                android:text="-20"
+                android:textSize="30dip" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/LinearLayout3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-10dp"
-            android:orientation="horizontal"
-            android:paddingTop="10dp" >
-
-            <ImageButton
-                android:id="@+id/vote_detail"
-                style="@style/btnStyleOrange"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginRight="10dp"
-                android:scaleType="centerCrop"
-                android:src="@android:drawable/sym_action_chat" />
-
-            <ImageButton
-                android:id="@+id/vote_result"
-                style="@style/btnStyleGreen"
+            <TextView
+                android:id="@+id/vote_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_menu_search"/>
+                android:layout_gravity="right|bottom"
+                android:layout_marginTop="5dp"
+                android:text="票"
+                android:textSize="20dp" />
 
         </LinearLayout>
+
     </LinearLayout>
 
 </FrameLayout>
