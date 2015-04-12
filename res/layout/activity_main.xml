@@ -33,7 +33,7 @@
         android:layout_centerHorizontal="true"
         android:background="#00000000"
         android:paddingTop="15dp"
-        android:scaleType="fitStart"
+        android:scaleType="fitCenter"
         android:scaleY="0.9"
         android:src="@drawable/title_whiteboard" />
 
