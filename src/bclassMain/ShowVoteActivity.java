@@ -1,13 +1,9 @@
 package bclassMain;
 
-import java.util.Arrays;
-
-import org.achartengine.ChartFactory;
-import org.achartengine.chart.BarChart.Type;
-import org.achartengine.model.XYMultipleSeriesDataset;
-import org.achartengine.model.XYSeries;
-import org.achartengine.renderer.XYMultipleSeriesRenderer;
-import org.achartengine.renderer.XYSeriesRenderer;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.TreeMap;
 
 import com.example.bclass.R;
 import com.parse.GetCallback;
@@ -15,57 +11,45 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-import android.R.integer;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.graphics.Color;
-import android.graphics.Paint.Align;
-import android.graphics.Typeface;
+import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.Toast;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 public class ShowVoteActivity extends Activity {
 
-	private View mChart;
 	Dialog progressDialog;
-	private String[] mMonth = new String[] { "Jan", "Feb", "Mar", "Apr", "May",
-			"Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" };
 	Bundle bundle;
-	String objectId, voteResult;
+	String objectId, voteResult, voteName;
+	int[] votes;
 	int voteChoice;
+	SimpleAdapter myAdapter;
+	List<HashMap<String, String>> resultList;
+	HashMap<String, String> resultItem;
+	TreeMap<Integer, String> resultSort;
+	ResultAdapter adapter;
+	ListView listView_result;
+	TextView result_title;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_vote);
 
-		// Getting reference to the button btn_chart
-		Button btnChart = (Button) findViewById(R.id.btn_chart);
-
 		bundle = this.getIntent().getExtras();
 		objectId = bundle.getString("objectId");
 		new RemoteDataTask().execute();
-		// Defining click event listener for the button btn_chart
-		OnClickListener clickListener = new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-				// Draw the Income vs Expense Chart
-				openChart();
-			}
-		};
-
-		// Setting event click listener for the button btn_chart of the
-		// MainActivity layout
-		btnChart.setOnClickListener(clickListener);
-
 	}
 
 	private class RemoteDataTask extends AsyncTask<Void, Void, Void> {
@@ -84,12 +68,19 @@ public class ShowVoteActivity extends Activity {
 						voteResult = object.getString("result");
 						Log.i("result", voteResult);
 						voteChoice = object.getInt("choice");
+						voteName = object.getString("name");
 						String[] xx = voteResult.split(",");
-						int[] yy = new int[voteChoice + 1];
+						votes = new int[voteChoice + 1];
 						for (int i = 1; i < xx.length; i++) {
-							yy[Integer.parseInt(xx[i])] += 1;
+							votes[Integer.parseInt(xx[i])] += 1; // 得票數
 						}
-						Log.i("result", Arrays.toString(yy));
+						makeList();
+						adapter = new ResultAdapter(ShowVoteActivity.this);
+						listView_result = (ListView) findViewById(R.id.listView_result);
+						result_title = (TextView) findViewById(R.id.result_title);
+						result_title.setText(voteName);
+						listView_result.setAdapter(adapter);
+						// Log.i("result", Arrays.toString(yy));
 					}
 				}
 			});
@@ -111,150 +102,79 @@ public class ShowVoteActivity extends Activity {
 		@Override
 		protected void onPostExecute(Void result) {
 			// Put the list of todos into the list view
+
 			ShowVoteActivity.this.progressDialog.dismiss();
 		}
 
 	}
 
-	public void getVoteX() {
+	public void makeList() {
+		resultList = new ArrayList<HashMap<String, String>>();
+		for (int i = 1; i < votes.length; i++) {
+			resultItem = new HashMap<String, String>();
+			resultItem.put("team_name", "第" + String.valueOf(i) + "組");
+			resultItem.put("team_votes", String.valueOf(votes[i]));
+			resultItem.put("vote_text", "票");
+			resultList.add(resultItem);
+		}
+
 	}
 
-	private void openChart() {
+	public final class MyView {
+		public TextView team_name;
+		public TextView team_votes;
+		public TextView vote_text;
+	}
 
-		int[] x = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
-		int[] income = { 2000, 2500, 2700, 3000, 2800, 3500, 3700, 3800, 0, 0,
-				0, 0 };
-		int[] expense = { 2200, 2700, 2900, 2800, 2600, 3000, 3300, 3400, 0, 0,
-				0, 0 };
+	private class ResultAdapter extends BaseAdapter {
 
-		// Creating an XYSeries for Income
-		XYSeries incomeSeries = new XYSeries("Income");
-		// Creating an XYSeries for Expense
-		XYSeries expenseSeries = new XYSeries("Expense");
-		// Adding data to Income and Expense Series
-		for (int i = 0; i < x.length; i++) {
-			incomeSeries.add(i, income[i]);
-			expenseSeries.add(i, expense[i]);
+		private LayoutInflater inflater;
+
+		public ResultAdapter(Context context) {
+			inflater = LayoutInflater.from(context);
 		}
 
-		// Creating a dataset to hold each series
-		XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
-		// Adding Income Series to the dataset
-		dataset.addSeries(incomeSeries);
-		// Adding Expense Series to dataset
-		dataset.addSeries(expenseSeries);
-
-		// Creating XYSeriesRenderer to customize incomeSeries
-		XYSeriesRenderer incomeRenderer = new XYSeriesRenderer();
-		incomeRenderer.setColor(Color.CYAN); // color of the graph set to cyan
-		incomeRenderer.setFillPoints(true);
-		incomeRenderer.setLineWidth(2);
-		incomeRenderer.setDisplayChartValues(true);
-		incomeRenderer.setDisplayChartValuesDistance(10); // setting chart value
-															// distance
-
-		// Creating XYSeriesRenderer to customize expenseSeries
-		XYSeriesRenderer expenseRenderer = new XYSeriesRenderer();
-		expenseRenderer.setColor(Color.GREEN);
-		expenseRenderer.setFillPoints(true);
-		expenseRenderer.setLineWidth(2);
-		expenseRenderer.setDisplayChartValues(true);
-
-		// Creating a XYMultipleSeriesRenderer to customize the whole chart
-		XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
-		multiRenderer
-				.setOrientation(XYMultipleSeriesRenderer.Orientation.HORIZONTAL);
-		multiRenderer.setXLabels(0);
-		multiRenderer.setChartTitle("Income vs Expense Chart");
-		multiRenderer.setXTitle("Year 2014");
-		multiRenderer.setYTitle("Amount in Dollars");
-
-		/***
-		 * Customizing graphs
-		 */
-		// setting text size of the title
-		multiRenderer.setChartTitleTextSize(28);
-		// setting text size of the axis title
-		multiRenderer.setAxisTitleTextSize(24);
-		// setting text size of the graph lable
-		multiRenderer.setLabelsTextSize(24);
-		// setting zoom buttons visiblity
-		multiRenderer.setZoomButtonsVisible(false);
-		// setting pan enablity which uses graph to move on both axis
-		multiRenderer.setPanEnabled(false, false);
-		// setting click false on graph
-		multiRenderer.setClickEnabled(false);
-		// setting zoom to false on both axis
-		multiRenderer.setZoomEnabled(false, false);
-		// setting lines to display on y axis
-		multiRenderer.setShowGridY(false);
-		// setting lines to display on x axis
-		multiRenderer.setShowGridX(false);
-		// setting legend to fit the screen size
-		multiRenderer.setFitLegend(true);
-		// setting displaying line on grid
-		multiRenderer.setShowGrid(false);
-		// setting zoom to false
-		multiRenderer.setZoomEnabled(false);
-		// setting external zoom functions to false
-		multiRenderer.setExternalZoomEnabled(false);
-		// setting displaying lines on graph to be formatted(like using
-		// graphics)
-		multiRenderer.setAntialiasing(true);
-		// setting to in scroll to false
-		multiRenderer.setInScroll(false);
-		// setting to set legend height of the graph
-		multiRenderer.setLegendHeight(30);
-		// setting x axis label align
-		multiRenderer.setXLabelsAlign(Align.CENTER);
-		// setting y axis label to align
-		multiRenderer.setYLabelsAlign(Align.LEFT);
-		// setting text style
-		multiRenderer.setTextTypeface("sans_serif", Typeface.NORMAL);
-		// setting no of values to display in y axis
-		multiRenderer.setYLabels(10);
-		// setting y axis max value, Since i'm using static values inside the
-		// graph so i'm setting y max value to 4000.
-		// if you use dynamic values then get the max y value and set here
-		multiRenderer.setYAxisMax(4000);
-		// setting used to move the graph on xaxiz to .5 to the right
-		multiRenderer.setXAxisMin(-0.5);
-		// setting max values to be display in x axis
-		multiRenderer.setXAxisMax(11);
-		// setting bar size or space between two bars
-		multiRenderer.setBarSpacing(0.5);
-		// Setting background color of the graph to transparent
-		multiRenderer.setBackgroundColor(Color.TRANSPARENT);
-		// Setting margin color of the graph to transparent
-		multiRenderer.setMarginsColor(getResources().getColor(
-				R.color.transparent_background));
-		multiRenderer.setApplyBackgroundColor(true);
-
-		// setting the margin size for the graph in the order top, left, bottom,
-		// right
-		multiRenderer.setMargins(new int[] { 30, 30, 30, 30 });
-
-		for (int i = 0; i < x.length; i++) {
-			multiRenderer.addXTextLabel(i, mMonth[i]);
+		@Override
+		public int getCount() {
+			// TODO Auto-generated method stub
+			return resultList.size();
 		}
 
-		// Adding incomeRenderer and expenseRenderer to multipleRenderer
-		// Note: The order of adding dataseries to dataset and renderers to
-		// multipleRenderer
-		// should be same
-		multiRenderer.addSeriesRenderer(incomeRenderer);
-		multiRenderer.addSeriesRenderer(expenseRenderer);
+		@Override
+		public Object getItem(int position) {
+			// TODO Auto-generated method stub
+			return null;
+		}
 
-		// this part is used to display graph on the xml
-		LinearLayout chartContainer = (LinearLayout) findViewById(R.id.chart);
-		// remove any views before u paint the chart
-		chartContainer.removeAllViews();
-		// drawing bar chart
-		mChart = ChartFactory.getBarChartView(ShowVoteActivity.this, dataset,
-				multiRenderer, Type.DEFAULT);
-		// adding the view to the linearlayout
-		chartContainer.addView(mChart);
+		@Override
+		public long getItemId(int position) {
+			// TODO Auto-generated method stub
+			return 0;
+		}
 
+		@Override
+		public View getView(final int position, View convertView,
+				ViewGroup parent) {
+			// TODO Auto-generated method stub
+			MyView myviews = null;
+			myviews = new MyView();
+			convertView = inflater.inflate(R.layout.result_list_item, null);
+			myviews.team_name = (TextView) convertView
+					.findViewById(R.id.team_name);
+			myviews.team_votes = (TextView) convertView
+					.findViewById(R.id.team_votes);
+			myviews.vote_text = (TextView) convertView
+					.findViewById(R.id.vote_text);
+
+			myviews.team_name
+					.setText(resultList.get(position).get("team_name"));
+			myviews.team_votes.setText(resultList.get(position).get(
+					"team_votes"));
+			myviews.vote_text
+					.setText(resultList.get(position).get("vote_text"));
+
+			return convertView;
+		}
 	}
 
 }
