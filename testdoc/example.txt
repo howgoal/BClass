@@ -1,0 +1,22 @@
+每一個activity請新增一個file名稱為 activity_test.txt	
+
+測試的function 前面請要附上註解，還要附上測試資料跟預期結果
+示範一個
+
+假設function 為
+
+public int add(int a, int b)  { 
+  return a+b
+}
+
+文件上面請附上
+
+/**
+ *  
+ * @param int a
+ * @param int b
+ * @return int a+b 
+ * 
+*/
+public int add(int a, int b)  
+測試資料 a =1 , b = 2 , result = 3;

@@ -15,13 +15,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:orientation="vertical" >
-
+        android:orientation="horizontal" >
+        
     <ImageButton
-        android:id="@+id/createNote"
+        android:id="@+id/note_buttonGoBack"
         android:layout_width="62dp"
         android:layout_height="54dp"
         android:src="@drawable/custom_btn_orange" />
+
+    <ImageButton
+        android:id="@+id/note_buttonCreate"
+        android:layout_width="62dp"
+        android:layout_height="54dp"
+        android:src="@drawable/custom_btn_orange" />
+
     </LinearLayout>
 
     <ListView
