@@ -4,5 +4,245 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="bclassMain.NewAdviseActivity"
-    tools:ignore="MergeRootFrame" />
+    tools:ignore="MergeRootFrame" >
+    
+    <TextView
+        android:id="@+id/advise_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:text="Advise" />
+
+    <TextView
+        android:id="@+id/advise_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:text="評分以1~5表示，1為最低，5為最高" />
+   
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+        
+        <TextView
+        	android:id="@+id/question1"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       	 	android:layout_marginTop="70dp"
+       	 	android:layout_marginLeft="10dp"
+        	android:text="Q1. 老師今天的到課時間是合理的" />
+
+   		<RadioGroup  
+       		android:id="@+id/radioGroup1"  
+        	android:layout_width="wrap_content"  
+        	android:layout_height="wrap_content"
+        	android:layout_marginLeft="30dp"  
+        	android:orientation="horizontal">  
+          
+        	<RadioButton  
+            	android:id="@+id/q1_btn1"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="1"/> 
+            	 
+        	<RadioButton  
+            	android:id="@+id/q1_btn2"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="2"/> 
+            	   
+        	<RadioButton  
+            	android:id="@+id/q1_btn3"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="3"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q1_btn4"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="4"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q1_btn5"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="5"/>
+    	</RadioGroup>  
+
+   		<TextView
+        	android:id="@+id/question2"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       	 	android:layout_marginTop="5dp"
+       	 	android:layout_marginLeft="10dp"
+        	android:text="Q2. 老師教學認真" />
+
+   		<RadioGroup  
+       		android:id="@+id/radioGroup2"  
+        	android:layout_width="wrap_content"  
+        	android:layout_height="wrap_content"
+        	android:layout_marginLeft="30dp"  
+        	android:orientation="horizontal">  
+          
+        	<RadioButton  
+            	android:id="@+id/q2_btn1"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="1"/> 
+            	 
+        	<RadioButton  
+            	android:id="@+id/q2_btn2"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="2"/> 
+            	   
+        	<RadioButton  
+            	android:id="@+id/q2_btn3"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="3"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q2_btn4"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="4"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q2_btn5"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="5"/>
+    	</RadioGroup>  
+   		
+   		<TextView
+        	android:id="@+id/question3"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       	 	android:layout_marginTop="5dp"
+       	 	android:layout_marginLeft="10dp"
+        	android:text="Q3. 老師的評量方式是很公平的" />
+
+   		<RadioGroup  
+       		android:id="@+id/radioGroup3"  
+        	android:layout_width="wrap_content"  
+        	android:layout_height="wrap_content"
+        	android:layout_marginLeft="30dp"  
+        	android:orientation="horizontal">  
+          
+        	<RadioButton  
+            	android:id="@+id/q3_btn1"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="1"/> 
+            	 
+        	<RadioButton  
+            	android:id="@+id/q3_btn2"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="2"/> 
+            	   
+        	<RadioButton  
+            	android:id="@+id/q3_btn3"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="3"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q3_btn4"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="4"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q3_btn5"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="5"/>
+    	</RadioGroup>  
+   		
+   		<TextView
+        	android:id="@+id/question4"
+        	android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+       	 	android:layout_marginTop="5dp"
+       	 	android:layout_marginLeft="10dp"
+        	android:text="Q4. 老師指派對學生有助益的作業" />
+
+   		<RadioGroup  
+       		android:id="@+id/radioGroup4"  
+        	android:layout_width="wrap_content"  
+        	android:layout_height="wrap_content"
+        	android:layout_marginLeft="30dp"  
+        	android:orientation="horizontal">  
+          
+        	<RadioButton  
+            	android:id="@+id/q4_btn1"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="1"/> 
+            	 
+        	<RadioButton  
+            	android:id="@+id/q4_btn2"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="2"/> 
+            	   
+        	<RadioButton  
+            	android:id="@+id/q4_btn3"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="3"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q4_btn4"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="4"/>
+        	
+        	<RadioButton  
+            	android:id="@+id/q4_btn5"  
+            	android:layout_width="wrap_content"  
+            	android:layout_height="wrap_content"  
+            	android:text="5"/>
+    	</RadioGroup>
+
+   		<EditText
+   		    android:id="@+id/comments"
+   		    android:layout_width="match_parent"
+   		    android:layout_height="100dp"
+   		    android:layout_marginTop="10dp"
+   		    android:layout_marginLeft="10dp"
+   		    android:layout_marginRight="10dp"
+   		    android:ems="10"
+   		    android:gravity="top"
+   		    android:hint="其他意見"
+   		    android:inputType="textMultiLine" >
+   		    <requestFocus />
+   		</EditText>
+    </LinearLayout>
+    
+    <Button
+   		android:id="@+id/advise_OK"
+   		android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="30dp"
+   		android:text="OK" />
+   	
+    <Button
+   		android:id="@+id/advise_cancel"
+   		android:layout_width="wrap_content"
+       	android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:layout_marginLeft="130dp"
+   		android:text="Cancel" />
+	
+
+</FrameLayout>
+    
 
