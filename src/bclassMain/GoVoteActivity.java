@@ -36,6 +36,7 @@ import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -52,7 +53,7 @@ public class GoVoteActivity extends Activity {
 	Bundle bundle;
 	String objectId;
 	Dialog progressDialog;
-	Button btnSubmit, btnCancel;
+	ImageButton btnSubmit, btnCancel;
 	ParseObject todos;
 	HashSet<Integer> votessSet;
 	int[] voteArray;
@@ -61,6 +62,7 @@ public class GoVoteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_go_vote);
+		getActionBar().hide(); 
 		sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 		bundle = this.getIntent().getExtras();
 		objectId = bundle.getString("objectId");
@@ -119,8 +121,8 @@ public class GoVoteActivity extends Activity {
 		textViewDescrip = (TextView) findViewById(R.id.textDesrcipt);
 		textViewDate = (TextView) findViewById(R.id.textDate);
 		layoutCheckBox = (LinearLayout) findViewById(R.id.layoutCheckBox);
-		btnSubmit = (Button) findViewById(R.id.btnSubmit);
-		btnCancel = (Button) findViewById(R.id.btnCancel);
+		btnSubmit = (ImageButton) findViewById(R.id.btnSubmit);
+		btnCancel = (ImageButton) findViewById(R.id.btnCancel);
 		voteArray = new int[voteNumber + 1];
 		votessSet = new HashSet<Integer>();
 		btnSubmit.setOnClickListener(voteBtnFunction);
