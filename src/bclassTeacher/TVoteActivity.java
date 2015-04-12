@@ -12,6 +12,7 @@ import bclassMain.ShowAdviseActivity;
 import bclassMain.ShowVoteActivity;
 
 import com.example.bclass.R;
+import com.example.bclass.R.color;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -44,7 +45,7 @@ import android.os.Build;
 public class TVoteActivity extends Activity {
 
 	ListView listView1;
-	Button btnCreatVote;
+	ImageButton btnCreatVote;
 	private List<ParseObject> vote_list;
 	private Dialog progressDialog;
 	SimpleAdapter myAdapter;
@@ -67,7 +68,7 @@ public class TVoteActivity extends Activity {
 
 	public void init() {
 		listView1 = (ListView) findViewById(android.R.id.list);
-		btnCreatVote = (Button) findViewById(R.id.btnCreatVote);
+		btnCreatVote = (ImageButton) findViewById(R.id.btnCreatVote);
 		btnCreatVote.setOnClickListener(creatVote);
 	}
 
