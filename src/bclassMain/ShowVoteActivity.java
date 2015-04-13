@@ -46,7 +46,7 @@ public class ShowVoteActivity extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_vote);
-
+		getActionBar().hide(); 
 		bundle = this.getIntent().getExtras();
 		objectId = bundle.getString("objectId");
 		new RemoteDataTask().execute();
