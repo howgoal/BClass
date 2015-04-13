@@ -14,13 +14,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="57dp"
+            android:layout_height="53dp"
             android:background="@drawable/test_back"
             android:gravity="center|left"
             android:paddingLeft="23dp" >
 
             <TextView
-                android:id="@+id/textView1"
+                android:id="@+id/coteChoice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="投票名稱 :"
@@ -28,7 +28,7 @@
 
             <TextView
                 android:id="@+id/textName"
-                android:layout_width="185dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:gravity="center"
@@ -62,7 +62,7 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="239dp"
+            android:layout_height="220dp"
             android:paddingLeft="23dp" >
 
             <LinearLayout
@@ -75,12 +75,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="71dp"
+            android:layout_height="70dp"
             android:gravity="center|bottom"
             android:orientation="horizontal" >
 			
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/voteTime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="投票日期 :  "

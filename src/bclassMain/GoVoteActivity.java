@@ -55,7 +55,7 @@ public class GoVoteActivity extends Activity {
 	Dialog progressDialog;
 	ImageButton btnSubmit, btnCancel;
 	ParseObject todos;
-	HashSet<Integer> votessSet;
+	HashSet<Integer> votessSet; 
 	int[] voteArray;
 
 	@Override

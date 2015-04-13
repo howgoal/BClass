@@ -1,79 +1,135 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/exam_back"
     tools:context="bclassMain.NewVoteActivity"
     tools:ignore="MergeRootFrame" >
 
-    <EditText
-        android:id="@+id/voteTitle"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="標題"
-        android:ems="10" >
-        <requestFocus />
-    </EditText>
+        android:layout_height="60dp"
+        android:layout_x="0dp"
+        android:layout_y="65dp"
+        android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/voteDetail"
+        <EditText
+            android:id="@+id/voteTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|center_horizontal"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/edit"
+            android:ems="10"
+            android:hint="  標題"
+            android:padding="10dp" >
+
+            <requestFocus /> 
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="詳細資訊"
-        android:gravity="top"
-        android:ems="10"
-        android:inputType="textMultiLine" />
+        android:layout_height="175dp"
+        android:layout_x="0dp"
+        android:layout_y="130dp"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/voteChoice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="50dp"
-        android:text="候選人有幾個" />
+        <EditText
+            android:id="@+id/voteDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="left"
+            android:hint="詳細資訊"
+            android:padding="10dp" />
 
-    <Spinner
-        android:id="@+id/spinnerChoice"
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="150dp" />
-    
-    <TextView
-        android:id="@+id/voteTime"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:layout_marginLeft="50dp"
-        android:text="投票持續幾分鐘" />
+        android:layout_height="110dp"
+        android:layout_x="0dp"
+        android:layout_y="425dp" >
 
-    <Spinner
-        android:id="@+id/spinnerTime"
+        <ImageButton
+            android:id="@+id/voteOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_check" />
+
+        <ImageButton
+            android:id="@+id/voteCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_cancel" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="350dp"
-        android:layout_marginLeft="150dp" />
+        android:layout_height="70dp"
+        android:layout_x="0dp"
+        android:layout_y="305dp" >
 
-    <Button
-        android:id="@+id/voteOK"
+        <TextView
+            android:id="@+id/voteChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.40"
+            android:gravity="center"
+            android:text="候選人幾位"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/spinnerChoice"
+            android:layout_width="180dp"
+            android:layout_height="fill_parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_x="0dp"
+        android:layout_y="375dp" >
+
+        <TextView
+            android:id="@+id/voteTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="2.19"
+            android:gravity="center"
+            android:text="持續時間"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/spinnerTime"
+            android:layout_width="180dp"
+            android:layout_height="fill_parent" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="50dp"
-        android:text="OK" />
-    
-    <Button
-        android:id="@+id/voteCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="150dp"
-        android:text="Cancel" />
+        android:layout_height="60dp"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:src="@drawable/imgview_edit" />
 
-</FrameLayout>
-
+</AbsoluteLayout>
