@@ -47,12 +47,12 @@ public class NoteActivity extends Activity {
 	private Button buttonCreateReply;
 	private String user = "jiachingTest";
 
-	private InternetDetector internetDetector;
-	private Boolean isInternetPresent = false;
+	//private InternetDetector internetDetector;
+	//private Boolean isInternetPresent = false;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_note);
-		internetDetector =InternetDetector.getInstance();
+		//internetDetector =InternetDetector.getInstance();
 		// viewHead = LayoutInflater.from(this).inflate(R.layout.note_head,
 		// null);
 		// viewFooter = LayoutInflater.from(this).inflate(
