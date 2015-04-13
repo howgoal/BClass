@@ -18,8 +18,8 @@
         android:paddingTop="20dp"
         android:scaleType="fitXY"
         android:scaleX="0.8"
-        android:scaleY="0.72"
-        android:src="@drawable/title_teacher" />
+        android:scaleY="0.8"
+        android:src="@drawable/title_teacher" /> 
 
     <ImageButton
         android:id="@+id/btn_TToVote"
@@ -32,19 +32,20 @@
         android:paddingRight="40dp"
         android:scaleType="fitXY"
         android:src="@drawable/btn_vote" />
-
+ 
     <ImageButton
         android:id="@+id/btn_testExam"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/btn_TAdvice"
         android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/btn_TAdvice"
         android:background="#00000000"
         android:paddingBottom="10dp"
         android:paddingLeft="40dp"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:src="@drawable/btn_testexam" />
-
+ 
     <ImageButton
         android:id="@+id/btn_TAdvice"
         android:layout_width="wrap_content"
