@@ -21,16 +21,15 @@ public class NoteListAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	private List<ParseObject> note_list;
 	private NoteTag noteTag;
-	ParseQuery<ParseObject> query;
+	private NoteDatabase noteDatabase;
 
 	public NoteListAdapter(Context context) {
 		// TODO Auto-generated constructor stub
-
+		noteDatabase = NoteDatabase.getInstance();
 		activityContext = context;
 		inflater = LayoutInflater.from(context);
-		query = ParseQuery.getQuery("NoteSystem");
 		try {
-			note_list = query.find();
+			note_list = noteDatabase.getQuery().find();
 			Log.v("test", String.valueOf(note_list.size()));
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
@@ -41,7 +40,7 @@ public class NoteListAdapter extends BaseAdapter {
 
 	public void updateNoteDate() {
 		try {
-			note_list = query.find();
+			note_list = noteDatabase.getQuery().find();
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -75,14 +74,8 @@ public class NoteListAdapter extends BaseAdapter {
 			convertView = inflater.inflate(R.layout.note_row, null);
 
 			// 建構listItem內容view
-			noteTag = new NoteTag(
-					(TextView) convertView.findViewById(R.id.note_tv_username),
-					(TextView) convertView
-							.findViewById(R.id.note_tv_user_message),
-					(TextView) convertView
-							.findViewById(R.id.tv_note_rabbit_count),
-					(Button) convertView
-							.findViewById(R.id.btn_note_create_reply));
+			noteTag = new NoteTag(convertView,activityContext);
+					
 
 			// 設置容器內容
 			convertView.setTag(noteTag);
@@ -90,10 +83,7 @@ public class NoteListAdapter extends BaseAdapter {
 		} else {
 			noteTag = (NoteTag) convertView.getTag();
 		}
-
-		Note note = new Note(activityContext, noteTag.buttonDisaplyReply,
-				position);
-
+		noteTag.setNoteID(note_list.get(position).getObjectId());
 		noteTag.tvUserName.setText(note_list.get(position).getString("author"));
 		noteTag.tvUserMessage.setText(note_list.get(position).getString(
 				"message"));
