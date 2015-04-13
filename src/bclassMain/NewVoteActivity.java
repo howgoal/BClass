@@ -25,6 +25,7 @@ import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,14 +49,15 @@ public class NewVoteActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_newvote);
+		getActionBar().hide(); 
 		init();
 	}
 	
 	public void init() {
 		vote_title = (EditText) findViewById(R.id.voteTitle);
 		vote_detail = (EditText) findViewById(R.id.voteDetail);
-		Button btn_OK = (Button) findViewById(R.id.voteOK);
-		Button btn_cancel = (Button) findViewById(R.id.voteCancel);
+		ImageButton btn_OK = (ImageButton) findViewById(R.id.voteOK);
+		ImageButton btn_cancel = (ImageButton) findViewById(R.id.voteCancel);
 		spinnerChoice = (Spinner) findViewById(R.id.spinnerChoice);
 		spinnerTime = (Spinner) findViewById(R.id.spinnerTime);
 		ArrayAdapter<String> adapterChoice = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, choice);

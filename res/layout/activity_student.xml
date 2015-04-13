@@ -7,7 +7,7 @@
     tools:ignore="MergeRootFrame" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/coteChoice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Student" />

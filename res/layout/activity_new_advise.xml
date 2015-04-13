@@ -173,7 +173,7 @@
        	 	android:layout_marginLeft="10dp"
         	android:text="Q4. 老師指派對學生有助益的作業" />
 
-   		<RadioGroup  
+   		<RadioGroup 
        		android:id="@+id/radioGroup4"  
         	android:layout_width="wrap_content"  
         	android:layout_height="wrap_content"

@@ -2,7 +2,6 @@ package noteSystem;
 
 import java.io.Console;
 
-import bclassMain.InternetDetector;
 import bclassMain.MainActivity;
 import bclassStudent.StudentActivity;
 
