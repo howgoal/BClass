@@ -29,7 +29,7 @@
         android:id="@+id/imageView_title"
         android:layout_width="match_parent"
         android:layout_height="284dp"
-        android:layout_above="@+id/btn_teacher"
+        android:layout_above="@+id/btn_teacher" 
         android:layout_centerHorizontal="true"
         android:background="#00000000"
         android:paddingTop="15dp"
