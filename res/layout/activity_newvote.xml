@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_x="0dp"
-        android:layout_y="65dp"
+        android:layout_y="63dp"
         android:orientation="vertical" >
 
         <EditText
@@ -132,7 +132,7 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_x="0dp"
-        android:layout_y="0dp"
+        android:layout_y="-3dp"
         android:src="@drawable/imgview_new_vote" />
 
 </AbsoluteLayout>
