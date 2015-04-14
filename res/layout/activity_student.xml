@@ -69,6 +69,6 @@
         android:paddingRight="40dp"
         android:paddingTop="5dp"
         android:scaleType="fitXY"
-        android:src="@drawable/btn_back" />
+        android:src="@drawable/btn_question" />
 
 </RelativeLayout>
