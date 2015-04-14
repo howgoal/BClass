@@ -5,6 +5,9 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
+import bclassStudent.NewAdviseActivity;
+import bclassStudent.StudentActivity;
+
 import com.example.bclass.R;
 import com.example.bclass.R.id;
 import com.example.bclass.R.layout;
@@ -17,9 +20,12 @@ import com.parse.ParseQuery;
 import android.R.integer;
 import android.app.Activity;
 import android.app.ActionBar;
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.Fragment;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -29,6 +35,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -36,19 +44,23 @@ import android.os.Build;
 
 public class ShowAdviseActivity extends Activity {
 
-	private List<ParseObject> advise_list;
 	private Dialog progressDialog;
 	private int size = 0;
-	private int[][] questions = new int[4][5];
 	private int q1=0, q2=0, q3=0, q4=0;
+	private List<ParseObject> advise_list;
 	private List<String> comment_list;
+	private ArrayAdapter<String> listAdapter ;
+	private ListView listView;
 	private TextView peopleNum, pointResult1, pointResult2, pointResult3, pointResult4;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_advise);
 		init();
 		new RemoteDataTask().execute();
+//		listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, comment_list);
+//		listView.setAdapter(listAdapter);
 	}
 
 	public void init() {
@@ -71,10 +83,13 @@ public class ShowAdviseActivity extends Activity {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
 			case R.id.seeMore:
-				
+				openOptionsDialog();
 				break;
 			case R.id.btn_back:
-
+				Intent intent_back = new Intent();
+				intent_back.setClass(ShowAdviseActivity.this, TeacherActivity.class);
+				startActivity(intent_back); 
+				ShowAdviseActivity.this.finish();
 				break;
 			default:
 				break;
@@ -139,6 +154,27 @@ public class ShowAdviseActivity extends Activity {
 		String output = String.format("%.2f", result);
 		return output;
 	}
+	
+	private void openOptionsDialog() {
+	      AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+	      LayoutInflater inflater = getLayoutInflater();
+	      View convertView = (View) inflater.inflate(R.layout.advise_list_item, null);
+	      dialog.setView(convertView);
+	      dialog.setTitle("其他意見");
+	      
+	      ListView lv = (ListView) convertView.findViewById(R.id.listView_alert);
+	      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+	    		  		android.R.layout.simple_list_item_1,comment_list);
+	      lv.setAdapter(adapter);
+	      
+	      dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+	            public void onClick( DialogInterface dialoginterface, int i) {
+	                  
+	            }
+	     } );
+	     dialog.show();
+	} 
+	 
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
