@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="bclassTeacher.TeacherActivity"
     tools:ignore="MergeRootFrame" 
-    android:background="@drawable/home_back">
+    android:background="@drawable/blue_back">
 
     <ImageView
         android:id="@+id/imageView1"
