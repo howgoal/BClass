@@ -1,7 +1,5 @@
 package bclassStudent;
 
-import bclassTeacher.TVoteActivity;
-
 import com.example.bclass.R;
 import com.example.bclass.R.id;
 import com.example.bclass.R.layout;

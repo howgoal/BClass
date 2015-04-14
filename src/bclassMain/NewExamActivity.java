@@ -37,10 +37,13 @@ public class NewExamActivity extends Activity {
 	private EditText exam_title;
 	private EditText exam_detail;
 	private Spinner spExamChoice;
+	private Spinner spExamTime;
 	private String[] choice = {"1", "2", "3", "4", "5"};
+	private String[] time = {"10", "15", "30", "60"};
 	private String title = "";
 	private String detail = "";
 	private int choice_OK = 4;
+	private int time_OK = 3;
 	private Date curDate;
 	
 	@Override
@@ -55,17 +58,22 @@ public class NewExamActivity extends Activity {
 		exam_title = (EditText) findViewById(R.id.examTitle);
 		exam_detail = (EditText) findViewById(R.id.examDetail);
 		TextView exam_choice = (TextView) findViewById(R.id.examChoice);
+		TextView exam_time = (TextView) findViewById(R.id.examTime);
 		ImageButton btn_OK = (ImageButton) findViewById(R.id.examOK);
 		ImageButton btn_cancel = (ImageButton) findViewById(R.id.examCancel);
 		spExamChoice = (Spinner) findViewById(R.id.spExamChoice);
+		spExamTime = (Spinner) findViewById(R.id.spExamTime);
 		ArrayAdapter<String> adapterChoice = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, choice);
+		ArrayAdapter<String> adapterTime = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, time);
 		
 		btn_OK.setOnClickListener(decision);
 	    btn_cancel.setOnClickListener(decision);
 	    spExamChoice.setAdapter(adapterChoice);
 	    spExamChoice.setOnItemSelectedListener(spinnerListener);
-	    //spExamChoice.setVisibility(View.VISIBLE);
 	    spExamChoice.setSelection(3);
+	    spExamTime.setAdapter(adapterTime);
+	    spExamTime.setOnItemSelectedListener(spinnerListener);
+	    spExamTime.setSelection(2);
 	}
 	
 	private OnClickListener decision = new OnClickListener() {
@@ -82,6 +90,7 @@ public class NewExamActivity extends Activity {
 				exam.put("description", detail);
 				exam.put("name", title);
 				exam.put("choice", choice_OK);
+				exam.put("time", time_OK);
 				exam.put("utc8", curDate);
 				exam.put("result", "");
 				exam.saveInBackground();
