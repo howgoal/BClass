@@ -84,8 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="投票日期 :  "
-               
-                android:textSize="25dp" />
+                android:textSize="25dp" /> 
 
             <TextView
                 android:id="@+id/textDate"
