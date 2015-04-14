@@ -8,29 +8,20 @@ import java.sql.Date;
 
 import com.parse.ParseObject;
 
-import android.R.integer;
 import android.app.Activity;
-import android.app.ActionBar;
-import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.AdapterView.OnItemSelectedListener;
-import android.os.Build;
 
 public class NewExamActivity extends Activity {
 
@@ -43,8 +34,7 @@ public class NewExamActivity extends Activity {
 	private String title = "";
 	private String detail = "";
 	private int choice_OK = 4;
-	private int time_OK = 3;
-	private Date curDate;
+	private int time_OK = 30;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +47,6 @@ public class NewExamActivity extends Activity {
 	public void init() {
 		exam_title = (EditText) findViewById(R.id.examTitle);
 		exam_detail = (EditText) findViewById(R.id.examDetail);
-		TextView exam_choice = (TextView) findViewById(R.id.examChoice);
-		TextView exam_time = (TextView) findViewById(R.id.examTime);
 		ImageButton btn_OK = (ImageButton) findViewById(R.id.examOK);
 		ImageButton btn_cancel = (ImageButton) findViewById(R.id.examCancel);
 		spExamChoice = (Spinner) findViewById(R.id.spExamChoice);
@@ -85,13 +73,11 @@ public class NewExamActivity extends Activity {
 			case R.id.examOK:
 				title = exam_title.getText().toString();
 				detail = exam_detail.getText().toString();
-				curDate = new Date(System.currentTimeMillis());
 				ParseObject exam = new ParseObject("Exam");
 				exam.put("description", detail);
 				exam.put("name", title);
 				exam.put("choice", choice_OK);
 				exam.put("time", time_OK);
-				exam.put("utc8", curDate);
 				exam.put("result", "");
 				exam.saveInBackground();
 				
@@ -120,7 +106,16 @@ public class NewExamActivity extends Activity {
 		public void onItemSelected(AdapterView<?> parent, View view,
 				int position, long id) {
 			// TODO Auto-generated method stub
-			choice_OK = Integer.parseInt(choice[position]);
+			switch (parent.getId()) {
+			case R.id.spExamChoice:
+				choice_OK = Integer.parseInt(choice[position]);
+				break;
+			case R.id.spExamTime:
+				time_OK = Integer.parseInt(time[position]);
+				break;
+			default:
+				break;
+			}
 		}
 
 		@Override
