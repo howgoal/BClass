@@ -34,7 +34,7 @@
         	android:layout_height="wrap_content"
        	 	android:layout_marginTop="70dp"
        	 	android:layout_marginLeft="10dp"
-        	android:text="Q1. 老師今天的到課時間是合理的" />
+        	android:text="@string/question1" />
 
    		<RadioGroup  
        		android:id="@+id/radioGroup1"  
@@ -80,7 +80,7 @@
         	android:layout_height="wrap_content"
        	 	android:layout_marginTop="5dp"
        	 	android:layout_marginLeft="10dp"
-        	android:text="Q2. 老師教學認真" />
+        	android:text="@string/question2" />
 
    		<RadioGroup  
        		android:id="@+id/radioGroup2"  
@@ -126,7 +126,7 @@
         	android:layout_height="wrap_content"
        	 	android:layout_marginTop="5dp"
        	 	android:layout_marginLeft="10dp"
-        	android:text="Q3. 老師的評量方式是很公平的" />
+        	android:text="@string/question3" />
 
    		<RadioGroup  
        		android:id="@+id/radioGroup3"  
@@ -172,7 +172,7 @@
         	android:layout_height="wrap_content"
        	 	android:layout_marginTop="5dp"
        	 	android:layout_marginLeft="10dp"
-        	android:text="Q4. 老師指派對學生有助益的作業" />
+        	android:text="@string/question4" />
 
    		<RadioGroup 
        		android:id="@+id/radioGroup4"  
