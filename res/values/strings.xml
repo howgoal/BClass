@@ -18,5 +18,11 @@
     <string name="title_activity_show_exam">ShowExamActivity</string>
     <string name="title_activity_go_exam">GoExamActivity</string>
     <string name="title_activity_sexam">SExamActivity</string>
+    
+    <string name="question1">Q1. 老師今天的到課時間是合理的</string>
+    <string name="question2">Q2. 老師教學認真</string>
+    <string name="question3">Q3. 老師的評量方式是很公平的</string>
+    <string name="question4">Q4. 老師指派對學生有助益的作業</string>
+    <string name="points">平均得分: </string>
 
 </resources>
