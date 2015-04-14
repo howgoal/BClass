@@ -58,7 +58,7 @@ public class TeacherActivity extends Activity {
 				break;
 			case R.id.btn_testExam: // test
 				Intent intent_exam = new Intent();
-				intent_exam.setClass(TeacherActivity.this, NewExamActivity.class);
+				intent_exam.setClass(TeacherActivity.this, TExamActivity.class);
 				startActivity(intent_exam); 
 				break;
 			default:
