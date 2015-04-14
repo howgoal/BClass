@@ -17,5 +17,6 @@
     <string name="title_activity_show_vote">ShowVoteActivity</string>
     <string name="title_activity_show_exam">ShowExamActivity</string>
     <string name="title_activity_go_exam">GoExamActivity</string>
+    <string name="title_activity_sexam">SExamActivity</string>
 
 </resources>

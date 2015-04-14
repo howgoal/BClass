@@ -88,6 +88,10 @@
             android:name="bclassMain.GoExamActivity"
             android:label="@string/title_activity_go_exam" >
         </activity>
+        <activity
+            android:name="bclassStudent.SExamActivity"
+            android:label="@string/title_activity_sexam" >
+        </activity>
     </application>
 
 </manifest>
