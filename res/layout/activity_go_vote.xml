@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context="bclassMain.GoVoteActivity"
-    android:background="@drawable/exam_back"
+    android:background="@drawable/sky_back"
     tools:ignore="MergeRootFrame"  >
 
     <LinearLayout
