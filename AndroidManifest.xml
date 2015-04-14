@@ -81,11 +81,11 @@
             android:label="@string/title_activity_show_vote" >
         </activity>
         <activity
-            android:name="com.example.bclass.ShowExamActivity"
+            android:name="bclassMain.ShowExamActivity"
             android:label="@string/title_activity_show_exam" >
         </activity>
         <activity
-            android:name="com.example.bclass.GoExamActivity"
+            android:name="bclassMain.GoExamActivity"
             android:label="@string/title_activity_go_exam" >
         </activity>
     </application>
