@@ -8,7 +8,6 @@ import java.util.List;
 
 import bclassMain.GoVoteActivity;
 import bclassMain.NewVoteActivity;
-import bclassMain.ShowAdviseActivity;
 import bclassMain.ShowVoteActivity;
 
 import com.example.bclass.R;

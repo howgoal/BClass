@@ -52,9 +52,9 @@ public class StudentActivity extends Activity {
 				StudentActivity.this.finish();  
 				break;
 			case R.id.btn_SToVote:
-//				Intent intent_vote = new Intent();
-//				intent_vote.setClass(StudentActivity.this, SVoteActivity.class);
-//				startActivity(intent_vote);  
+				Intent intent_vote = new Intent();
+				intent_vote.setClass(StudentActivity.this, SVoteActivity.class);
+				startActivity(intent_vote);  
 				break;
 			case R.id.testAdvise:
 				Intent intent = new Intent();

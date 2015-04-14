@@ -1,4 +1,4 @@
-package bclassMain;
+package bclassTeacher;
 
 import com.example.bclass.R;
 import com.example.bclass.R.id;

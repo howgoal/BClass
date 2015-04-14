@@ -10,7 +10,14 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <supports-screens android:resizeable="true" android:normalScreens="true" android:anyDensity="true" android:smallScreens="true" android:largeScreens="true" android:xlargeScreens="true"/>
+
+    <supports-screens
+        android:anyDensity="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:resizeable="true"
+        android:smallScreens="true"
+        android:xlargeScreens="true" />
 
     <application
         android:name="bclassMain.BrightApplication"
@@ -59,22 +66,27 @@
             android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
-
-        <activity 
-            android:name="noteSystem.NoteActivity">
-            
+        <activity android:name="noteSystem.NoteActivity" >
         </activity>
         <activity
             android:name="bclassStudent.NewAdviseActivity"
             android:label="@string/title_activity_new_advise" >
         </activity>
         <activity
-            android:name="bclassMain.ShowAdviseActivity"
+            android:name="bclassTeacher.ShowAdviseActivity"
             android:label="@string/title_activity_show_advise" >
         </activity>
         <activity
             android:name="bclassMain.ShowVoteActivity"
             android:label="@string/title_activity_show_vote" >
+        </activity>
+        <activity
+            android:name="com.example.bclass.ShowExamActivity"
+            android:label="@string/title_activity_show_exam" >
+        </activity>
+        <activity
+            android:name="com.example.bclass.GoExamActivity"
+            android:label="@string/title_activity_go_exam" >
         </activity>
     </application>
 
