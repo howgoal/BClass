@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="110dp"
         android:layout_x="0dp"
-        android:layout_y="425dp" >
+        android:layout_y="420dp" >
 
         <ImageButton
             android:id="@+id/voteOK"

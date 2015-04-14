@@ -17,6 +17,7 @@
     <string name="title_activity_show_vote">ShowVoteActivity</string>
     <string name="title_activity_show_exam">ShowExamActivity</string>
     <string name="title_activity_go_exam">GoExamActivity</string>
+    <string name="title_activity_sexam">SExamActivity</string>
     
     <string name="question1">Q1. 老師今天的到課時間是合理的</string>
     <string name="question2">Q2. 老師教學認真</string>
