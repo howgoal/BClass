@@ -35,7 +35,7 @@
     
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="205dp"
+        android:layout_height="170dp"
         android:layout_x="0dp"
         android:layout_y="130dp"
         android:orientation="vertical" >
@@ -83,11 +83,19 @@
 
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_x="0dp"
+        android:layout_y="-3dp"
+        android:src="@drawable/imgview_new_exam" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="74dp"
+        android:layout_height="70dp"
         android:layout_x="0dp"
-        android:layout_y="350dp"
+        android:layout_y="305dp"
         android:gravity="center_horizontal" >
 
         <TextView
@@ -95,8 +103,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:layout_weight="0.40"
+            android:gravity="center"
             android:text="選項個數"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -105,16 +113,33 @@
             android:layout_width="175dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_weight="0.03" />
+            android:layout_weight="0.03"
+            android:gravity="center" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
         android:layout_x="0dp"
-        android:layout_y="-3dp"
-        android:src="@drawable/imgview_new_exam" />
+        android:layout_y="375dp" >
+
+        <TextView
+            android:id="@+id/examTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.40"
+            android:gravity="center"
+            android:text="考試時間"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/spExamTime"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.03" />
+
+    </LinearLayout>
 
 </AbsoluteLayout>
