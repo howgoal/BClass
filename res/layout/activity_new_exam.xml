@@ -7,19 +7,11 @@
     tools:context="com.example.bclass.NewExamActivity"
     tools:ignore="MergeRootFrame" >
     
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_x="0dp"
-        android:layout_y="0dp"
-        android:src="@drawable/imgview_new_exam" />
-    
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_x="0dp"
-        android:layout_y="65dp"
+        android:layout_y="63dp"
         android:orientation="vertical" >
 
         <EditText
@@ -116,5 +108,13 @@
             android:gravity="center"
             android:layout_weight="0.03" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_x="0dp"
+        android:layout_y="-3dp"
+        android:src="@drawable/imgview_new_exam" />
 
 </AbsoluteLayout>
