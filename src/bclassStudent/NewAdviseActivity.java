@@ -23,6 +23,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -40,6 +41,7 @@ public class NewAdviseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_advise);
+		getActionBar().hide(); 
 		init();
 	}
 	
@@ -54,15 +56,15 @@ public class NewAdviseActivity extends Activity {
 			}	
 		}
 		
-		TextView advise_title = (TextView)findViewById(R.id.advise_title);
+		//TextView advise_title = (TextView)findViewById(R.id.advise_title);
 		TextView advise_detail = (TextView)findViewById(R.id.advise_detail);
 		TextView question1 = (TextView)findViewById(R.id.question1);
 		TextView question2 = (TextView)findViewById(R.id.question2);
 		TextView question3 = (TextView)findViewById(R.id.question3);
 		TextView question4 = (TextView)findViewById(R.id.question4);
 		comments = (EditText)findViewById(R.id.comments);
-		Button advise_OK = (Button)findViewById(R.id.advise_OK);
-		Button advise_cancel = (Button)findViewById(R.id.advise_cancel);
+		ImageButton advise_OK = (ImageButton)findViewById(R.id.advise_OK);
+		ImageButton advise_cancel = (ImageButton)findViewById(R.id.advise_cancel);
 		
 		advise_OK.setOnClickListener(decision);
 		advise_cancel.setOnClickListener(decision);
