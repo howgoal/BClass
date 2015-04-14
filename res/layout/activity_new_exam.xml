@@ -1,63 +1,120 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/orange_back"
     tools:context="com.example.bclass.NewExamActivity"
     tools:ignore="MergeRootFrame" >
-
-	 <EditText
-        android:id="@+id/examTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="標題"
-        android:ems="10" >
-        <requestFocus />
-    </EditText>
-
-    <EditText
-        android:id="@+id/examDetail"
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:hint="題目"
-        android:gravity="top"
-        android:ems="10"
-        android:inputType="textMultiLine" />
-
-    <TextView
-        android:id="@+id/examChoice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="50dp"
-        android:text="有幾個選項" />
-
-    <Spinner
-        android:id="@+id/spExamChoice"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="300dp"
-        android:layout_marginLeft="150dp" />
-
-    <Button
-        android:id="@+id/examOK"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="50dp"
-        android:text="OK" />
     
-    <Button
-        android:id="@+id/examCancel"
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="400dp"
-        android:layout_marginLeft="150dp"
-        android:text="Cancel" />
+        android:layout_height="60dp"
+        android:layout_x="0dp"
+        android:layout_y="0dp"
+        android:src="@drawable/imgview_new_exam" />
     
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_x="0dp"
+        android:layout_y="65dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/examTitle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|center_horizontal"
+            android:background="@drawable/rounded_edittext"
+            android:drawableLeft="@drawable/edit"
+            android:drawablePadding="10dp"
+            android:ems="10"
+            android:hint="標題"
+            android:padding="10dp" >
+
+            <requestFocus
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+ 
+        </EditText>
+    </LinearLayout>
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="205dp"
+        android:layout_x="0dp"
+        android:layout_y="130dp"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/examDetail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/rounded_edittext"
+            android:ems="10"
+            android:gravity="left"
+            android:hint="詳細資訊"
+            android:padding="10dp" />
+      
+
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/LinearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_x="0dp"
+        android:layout_y="425dp" >
+
+        <ImageButton
+            android:id="@+id/examOK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_check" />
+
+        <ImageButton
+            android:id="@+id/examCancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_cancel" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="74dp"
+        android:layout_x="0dp"
+        android:layout_y="350dp"
+        android:gravity="center_horizontal" >
+
+        <TextView
+            android:id="@+id/examChoice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="0.40"
+            android:text="選項個數"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <Spinner
+            android:id="@+id/spExamChoice"
+            android:layout_width="175dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_weight="0.03" />
+    </LinearLayout>
+
+</AbsoluteLayout>

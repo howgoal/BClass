@@ -25,6 +25,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,6 +47,7 @@ public class NewExamActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_new_exam);
+		getActionBar().hide(); 
 		init();
 	}
 	
@@ -53,8 +55,8 @@ public class NewExamActivity extends Activity {
 		exam_title = (EditText) findViewById(R.id.examTitle);
 		exam_detail = (EditText) findViewById(R.id.examDetail);
 		TextView exam_choice = (TextView) findViewById(R.id.examChoice);
-		Button btn_OK = (Button) findViewById(R.id.examOK);
-		Button btn_cancel = (Button) findViewById(R.id.examCancel);
+		ImageButton btn_OK = (ImageButton) findViewById(R.id.examOK);
+		ImageButton btn_cancel = (ImageButton) findViewById(R.id.examCancel);
 		spExamChoice = (Spinner) findViewById(R.id.spExamChoice);
 		ArrayAdapter<String> adapterChoice = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, choice);
 		
@@ -91,7 +93,7 @@ public class NewExamActivity extends Activity {
 				startActivity(intent_back); 
 				NewExamActivity.this.finish();  
 				break;
-			case R.id.voteCancel:
+			case R.id.examCancel:
 				Intent intent_tvote = new Intent();
 				intent_tvote.setClass(NewExamActivity.this, TExamActivity.class);
 				startActivity(intent_tvote); 

@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/exam_back"
+    android:background="@drawable/sky_back"
     tools:context="bclassMain.NewVoteActivity"
     tools:ignore="MergeRootFrame" >
 
@@ -21,8 +21,10 @@
             android:layout_gravity="center|center_horizontal"
             android:background="@drawable/rounded_edittext"
             android:drawableLeft="@drawable/edit"
+            android:drawablePadding="10dp"
             android:ems="10"
-            android:hint="  標題"
+            android:textColorHint="#5e6472"
+            android:hint="標題"
             android:padding="10dp" >
 
             <requestFocus /> 
@@ -44,6 +46,7 @@
             android:background="@drawable/rounded_edittext"
             android:ems="10"
             android:gravity="left"
+            android:textColorHint="#5e6472"
             android:hint="詳細資訊"
             android:padding="10dp" />
 
@@ -130,6 +133,6 @@
         android:layout_height="60dp"
         android:layout_x="0dp"
         android:layout_y="0dp"
-        android:src="@drawable/imgview_edit" />
+        android:src="@drawable/imgview_new_vote" />
 
 </AbsoluteLayout>
