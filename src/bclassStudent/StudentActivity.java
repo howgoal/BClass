@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.os.Build;
 
 public class StudentActivity extends Activity {
@@ -25,14 +26,15 @@ public class StudentActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_student);
+		getActionBar().hide(); 
 		init();
 	}
 
 	public void init() {
-		Button btn_SBack = (Button) findViewById(R.id.btn_SBack);
-		Button btn_ToVote = (Button) findViewById(R.id.btn_SToVote);
-		Button testAdvise = (Button) findViewById(R.id.testAdvise); // test
-		Button btn_SToNote = (Button) findViewById(R.id.btn_SToNote);
+		ImageButton btn_SBack = (ImageButton) findViewById(R.id.btn_SBack);
+		ImageButton btn_ToVote = (ImageButton) findViewById(R.id.btn_SToVote);
+		ImageButton testAdvise = (ImageButton) findViewById(R.id.testAdvise); // test
+		ImageButton btn_SToNote = (ImageButton) findViewById(R.id.btn_SToNote);
 		btn_SBack.setOnClickListener(modeChange);
 		btn_ToVote.setOnClickListener(modeChange);
 		testAdvise.setOnClickListener(modeChange); // test
