@@ -31,11 +31,11 @@ public class StudentActivity extends Activity {
 	}
 
 	public void init() {
-		ImageButton btn_SBack = (ImageButton) findViewById(R.id.btn_SBack);
+		ImageButton btn_SToExam = (ImageButton) findViewById(R.id.btn_SToExam);
 		ImageButton btn_ToVote = (ImageButton) findViewById(R.id.btn_SToVote);
 		ImageButton testAdvise = (ImageButton) findViewById(R.id.testAdvise); // test
 		ImageButton btn_SToNote = (ImageButton) findViewById(R.id.btn_SToNote);
-		btn_SBack.setOnClickListener(modeChange);
+		btn_SToExam.setOnClickListener(modeChange);
 		btn_ToVote.setOnClickListener(modeChange);
 		testAdvise.setOnClickListener(modeChange); // test
 		btn_SToNote.setOnClickListener(modeChange);
@@ -47,11 +47,10 @@ public class StudentActivity extends Activity {
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
 			switch (v.getId()) {
-			case R.id.btn_SBack:
+			case R.id.btn_SToExam:
 				Intent intent_back = new Intent();
-				intent_back.setClass(StudentActivity.this, MainActivity.class);
-				startActivity(intent_back); 
-				StudentActivity.this.finish();  
+				intent_back.setClass(StudentActivity.this, SExamActivity.class);
+				startActivity(intent_back);
 				break;
 			case R.id.btn_SToVote:
 				Intent intent_vote = new Intent();
@@ -66,8 +65,7 @@ public class StudentActivity extends Activity {
 			case R.id.btn_SToNote:
 				Intent intent_Note = new Intent();
 				intent_Note.setClass(StudentActivity.this, NoteActivity.class);
-				startActivity(intent_Note); 
-				StudentActivity.this.finish();  
+				startActivity(intent_Note);
 				break;
 			default:
 				break;
