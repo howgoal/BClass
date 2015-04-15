@@ -3,12 +3,9 @@
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#8b9dc3"
+    android:background="@drawable/sky_back"
     android:dividerHeight="10dp"
-    android:orientation="vertical"
-
-
-	>
+    android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/note_layout"
