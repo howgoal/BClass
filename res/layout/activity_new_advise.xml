@@ -1,41 +1,59 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="bclassMain.NewAdviseActivity"
+    android:layout_height="fill_parent"
     android:background="@drawable/orange_back"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context="bclassMain.NewAdviseActivity"
     tools:ignore="MergeRootFrame" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:weightSum="10" >
 
         <ImageView
             android:id="@+id/imageView1"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:layout_x="0dp"
-            android:layout_y="-3dp"
-            android:scaleType="fitStart"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
             android:src="@drawable/imgview_grade" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/advise_detail"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dp"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            android:gravity="center"
             android:text="評分以1~5表示，1為最低，5為最高"
             android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/question1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
             android:text="@string/question1"
             android:textSize="18sp" />
 
@@ -43,8 +61,8 @@
             android:id="@+id/radioGroup1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingLeft="25dp" >
 
             <RadioButton
                 android:id="@+id/q1_btn1"
@@ -76,13 +94,19 @@
                 android:layout_height="wrap_content"
                 android:text="5" />
         </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/question2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
             android:text="@string/question2"
             android:textSize="18sp" />
 
@@ -90,8 +114,8 @@
             android:id="@+id/radioGroup2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingLeft="25dp" >
 
             <RadioButton
                 android:id="@+id/q2_btn1"
@@ -123,13 +147,19 @@
                 android:layout_height="wrap_content"
                 android:text="5" />
         </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/question3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
             android:text="@string/question3"
             android:textSize="18sp" />
 
@@ -137,8 +167,8 @@
             android:id="@+id/radioGroup3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
             android:orientation="horizontal"
+            android:paddingLeft="25dp"
             android:textSize="18sp" >
 
             <RadioButton
@@ -171,13 +201,19 @@
                 android:layout_height="wrap_content"
                 android:text="5" />
         </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/question4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="5dp"
             android:text="@string/question4"
             android:textSize="18sp" />
 
@@ -185,8 +221,8 @@
             android:id="@+id/radioGroup4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:orientation="horizontal" >
+            android:orientation="horizontal"
+            android:paddingLeft="25dp" >
 
             <RadioButton
                 android:id="@+id/q4_btn1"
@@ -218,25 +254,36 @@
                 android:layout_height="wrap_content"
                 android:text="5" />
         </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:weightSum="10" >
 
         <EditText
             android:id="@+id/comments"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="0dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
+            android:layout_weight="6"
+            android:background="@drawable/rounded_edittext"
             android:ems="10"
             android:gravity="top"
-            android:padding="10dp"
-            android:textColorHint="#5e6472"
             android:hint="其他意見"
-            android:background="@drawable/rounded_edittext"
-            android:inputType="textMultiLine" /> 
+            android:inputType="textMultiLine"
+            android:padding="10dp"
+            android:textColorHint="#5e6472" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="0dp"
+            android:layout_weight="4"
+            android:weightSum="1" >
 
             <ImageButton
                 android:id="@+id/advise_OK"
@@ -260,5 +307,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
-    
+</LinearLayout>

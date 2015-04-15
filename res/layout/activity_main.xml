@@ -3,34 +3,23 @@
     android:id="@+id/RelativeLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/blue_back"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="bclassMain.MainActivity" 
-    android:background= "@drawable/blue_back" >
-
-    <Space
-        android:id="@+id/Space1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageButton
-        android:id="@+id/btn_student"
-        android:layout_width="213dp"
-        android:layout_height="130dp"
-        android:layout_alignLeft="@+id/btn_teacher"
-        android:layout_alignParentBottom="true"
-        android:background="#00000000"
-        android:scaleType="fitCenter"
-        android:src="@drawable/btn_student" />
+    android:weightSum="1"
+    tools:context="bclassMain.MainActivity" >
 
     <ImageView
         android:id="@+id/imageView_title"
         android:layout_width="match_parent"
-        android:layout_height="284dp"
-        android:layout_above="@+id/btn_teacher" 
-        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/btn_teacher"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_weight="0.3"
         android:background="#00000000"
         android:paddingTop="15dp"
         android:scaleType="fitCenter"
@@ -38,12 +27,26 @@
         android:src="@drawable/title_whiteboard" />
 
     <ImageButton
+        android:id="@+id/btn_student"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_weight="0.3"
+        android:background="#00000000"
+        android:padding="10dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/btn_student" />
+
+    <ImageButton
         android:id="@+id/btn_teacher"
-        android:layout_width="213dp"
-        android:layout_height="130dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
         android:layout_above="@+id/btn_student"
         android:layout_centerHorizontal="true"
+        android:layout_weight="0.3"
         android:background="#00000000"
+        android:padding="10dp"
         android:scaleType="fitCenter"
         android:src="@drawable/btn_teacher" />
 
