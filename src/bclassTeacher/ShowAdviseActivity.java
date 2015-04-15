@@ -38,9 +38,11 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.os.Build;
+import android.app.AlertDialog;
 
 public class ShowAdviseActivity extends Activity {
 
@@ -57,6 +59,7 @@ public class ShowAdviseActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_show_advise);
+		getActionBar().hide(); 
 		init();
 		new RemoteDataTask().execute();
 //		listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, comment_list);
@@ -69,8 +72,8 @@ public class ShowAdviseActivity extends Activity {
 		pointResult2 = (TextView) findViewById(R.id.pointResult2);
 		pointResult3 = (TextView) findViewById(R.id.pointResult3);
 		pointResult4 = (TextView) findViewById(R.id.pointResult4);
-		Button btn_more = (Button) findViewById(R.id.seeMore);
-		Button btn_back = (Button) findViewById(R.id.btn_back);
+		ImageButton btn_more = (ImageButton) findViewById(R.id.seeMore);
+		ImageButton btn_back = (ImageButton) findViewById(R.id.btn_back);
 
 		btn_more.setOnClickListener(btnListener);
 		btn_back.setOnClickListener(btnListener);
@@ -160,13 +163,21 @@ public class ShowAdviseActivity extends Activity {
 	      LayoutInflater inflater = getLayoutInflater();
 	      View convertView = (View) inflater.inflate(R.layout.advise_list_item, null);
 	      dialog.setView(convertView);
-	      dialog.setTitle("其他意見");
-	      
+
 	      ListView lv = (ListView) convertView.findViewById(R.id.listView_alert);
 	      ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
 	    		  		android.R.layout.simple_list_item_1,comment_list);
 	      lv.setAdapter(adapter);
 	      
+//	      ImageButton btn_dialog = (ImageButton)convertView.findViewById(R.id.btn_dialog);
+//	      btn_dialog.setOnClickListener(new View.OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				// TODO Auto-generated method stub
+//				
+//			}
+//		});
 	      dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 	            public void onClick( DialogInterface dialoginterface, int i) {
 	                  

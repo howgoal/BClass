@@ -7,11 +7,13 @@
     android:paddingBottom="10dp"
     android:paddingTop="10dp" >
 
+
     <TextView
         android:id="@+id/note_reply_row_tv_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="TextView" />
+
 
     <TextView
         android:id="@+id/note_reply_row_tv_message"
