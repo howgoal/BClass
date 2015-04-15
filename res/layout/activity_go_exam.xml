@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:context="bclassMain.GoExamActivity"
-    android:background="@drawable/sky_back"
+    android:background="@drawable/orange_back"
     tools:ignore="MergeRootFrame"  >
 
     <LinearLayout
@@ -15,21 +15,25 @@
             android:layout_width="match_parent"
             android:layout_height="53dp"
             android:background="@drawable/test_back"
+            android:weightSum="1"
             android:gravity="center|left"
             android:paddingLeft="23dp" >
 
             <TextView
                 android:id="@+id/examChoice"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.4"
                 android:text="考試名稱 :"
-                android:textSize="25dp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/examName"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
+                android:layout_weight="0.6"
+                android:textSize="24sp"
                 android:gravity="center"
                 android:text="name"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -39,20 +43,24 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="75dp"
+            android:weightSum="3"
             android:gravity="center|left"
             android:paddingLeft="23dp" >
 
             <TextView
                 android:id="@+id/textView3"
-                android:layout_width="100dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:text="說明 :"
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/textDesrcipt"
-                android:layout_width="200dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
                 android:layout_height="100dp"
+                android:textSize="23sp"
                 android:gravity="center"
                 android:text="..."
                 android:textAppearance="?android:attr/textAppearanceLarge" />
@@ -83,8 +91,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="投票日期 :  "
-               
-                android:textSize="25dp" />
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/examDate"
@@ -99,11 +106,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="bottom|left"
+            android:weightSum="1"
             android:orientation="horizontal" >
 
             <ImageButton
                 android:id="@+id/btnSubmit"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:background="#00000000"
@@ -113,7 +121,7 @@
 
             <ImageButton
                 android:id="@+id/btnCancel"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.5"
                 android:background="#00000000"

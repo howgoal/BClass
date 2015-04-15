@@ -57,6 +57,7 @@
     <LinearLayout
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
+        android:weightSum="1"
         android:layout_height="110dp"
         android:layout_x="0dp"
         android:layout_y="420dp" >
@@ -94,51 +95,55 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:weightSum="1"
         android:layout_x="0dp"
         android:layout_y="305dp"
         android:gravity="center_horizontal" >
 
         <TextView
             android:id="@+id/examChoice"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.40"
+            android:layout_weight="0.5"
             android:gravity="center"
+            android:textSize="23sp"
             android:text="選項個數"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/spExamChoice"
-            android:layout_width="175dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:layout_gravity="center"
-            android:layout_weight="0.03"
             android:gravity="center" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:weightSum="1"
         android:layout_x="0dp"
         android:layout_y="375dp" >
 
         <TextView
             android:id="@+id/examTime"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.40"
+            android:layout_weight="0.5"
+            android:textSize="23sp"
             android:gravity="center"
             android:text="考試時間"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/spExamTime"
-            android:layout_width="175dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.03" />
+            android:layout_weight="0.5" />
 
     </LinearLayout>
 
