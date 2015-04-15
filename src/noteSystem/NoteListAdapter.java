@@ -3,6 +3,7 @@ package noteSystem;
 import java.util.List;
 
 import com.example.bclass.R;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -28,19 +29,21 @@ public class NoteListAdapter extends BaseAdapter {
 		noteDatabase = NoteDatabase.getInstance();
 		activityContext = context;
 		inflater = LayoutInflater.from(context);
-		try {
-			note_list = noteDatabase.getQuery().find();
-			Log.v("test", String.valueOf(note_list.size()));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+
+			try {
+				note_list = noteDatabase.getQuery("NoteSystem").find();
+			} catch (ParseException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+	
 
 	}
 
 	public void updateNoteDate() {
 		try {
-			note_list = noteDatabase.getQuery().find();
+			note_list = noteDatabase.getQuery("NoteSystem").find();
+		
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -66,17 +69,16 @@ public class NoteListAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public View getView(int position, View convertView, ViewGroup parent) {
+	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-
+		
 		if (convertView == null) {
 			// 取得listItem容器 view
 			convertView = inflater.inflate(R.layout.note_row, null);
 
 			// 建構listItem內容view
 			noteTag = new NoteTag(convertView,activityContext);
-					
-
+			//Log.v("setID",note_list.get(position).getObjectId());
 			// 設置容器內容
 			convertView.setTag(noteTag);
 
