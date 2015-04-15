@@ -1,38 +1,40 @@
-package noteSystem;
+package noteReplySystem;
 
 import java.util.List;
 
+import noteSystem.Note;
+import noteSystem.NoteView;
+
 import com.example.bclass.R;
+
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-public class NoteListAdapter extends BaseAdapter {
-	private List<Note> list_note;
-	private Context noteContext;
-	private LayoutInflater inflater;
+public class ReplyListAdapter extends BaseAdapter {
 
-	public NoteListAdapter(Context _context,List<Note> notes) {
+	private List<Reply> list_reply;
+	private Context context;
+	private LayoutInflater inflater;
+	public ReplyListAdapter(Context _context,List<Reply> list) {
 		// TODO Auto-generated constructor stub
-		noteContext = _context;
+		list_reply = list;
+		context = _context;
 		inflater = LayoutInflater.from(_context);
-		list_note = notes;
 	}
 
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
-		Log.v("getCount",String.valueOf(list_note.size()));
-		return list_note.size();
+		return list_reply.size();
 	}
 
 	@Override
-	public Note getItem(int position) {
+	public Reply getItem(int position) {
 		// TODO Auto-generated method stub
-		return list_note.get(position);
+		return list_reply.get(position);
 	}
 
 	@Override
@@ -44,14 +46,14 @@ public class NoteListAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-
-		NoteView view;
+		
+		ReplyView view;
         if (convertView == null) {
-            view = (NoteView) inflater.inflate(R.layout.note_row, null);
+            view = (ReplyView) inflater.inflate(R.layout.note_reply_row, null);
         } else {
-            view = (NoteView) convertView;
+            view = (ReplyView) convertView;
         }
-        Note item = getItem(position);
+        Reply item = getItem(position);
         view.show(item);
         return view;
 	}

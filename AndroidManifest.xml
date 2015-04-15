@@ -92,6 +92,7 @@
             android:name="bclassStudent.SExamActivity"
             android:label="@string/title_activity_sexam" >
         </activity>
+        <activity android:name="noteSystem.NoteActivity" android:multiprocess="false"></activity>
     </application>
 
 </manifest>

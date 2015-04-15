@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<noteSystem.NoteView xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#FEFF87"
     android:orientation="vertical"
     android:paddingBottom="10dp"
     android:paddingTop="10dp"
-    tools:context="noteSystem.NoteActivity" >
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
             android:text="TextView" />
 
         <ImageButton
-            android:id="@+id/note_row_btn_edit"
+            android:id="@+id/note_btn_edit_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -30,7 +30,7 @@
             android:src="@drawable/custom_btn_orange" />
 
         <ImageButton
-            android:id="@+id/note_row_btn_delete"
+            android:id="@+id/note_btn_delete_message"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -47,6 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="141dp"
         android:scrollHorizontally="true"
+        android:scrollbars="vertical"
         android:text="Large Text"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
@@ -57,7 +58,7 @@
         android:orientation="horizontal" >
 
         <Button
-            android:id="@+id/btn_note_create_reply"
+            android:id="@+id/note_btn_create_reply"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="留言" />
@@ -69,7 +70,7 @@
             android:src="@drawable/custom_btn_orange" />
 
         <TextView
-            android:id="@+id/tv_note_rabbit_count"
+            android:id="@+id/note_tv_rabbit_count"
             android:layout_width="53dp"
             android:layout_height="match_parent"
             android:gravity="bottom"
@@ -83,17 +84,17 @@
         android:background="#ffffff" />
 
     <Button
-        android:id="@+id/btn_note_get_rabbit"
+        android:id="@+id/note_btn_get_rabbit"
         android:layout_width="fill_parent"
         android:layout_height="55dp"
         android:text="Me too" />
 
     <Button
-        android:id="@+id/btn_note_disply_reply"
+        android:id="@+id/note_btn_disply_reply"
         style="?android:attr/buttonStyleSmall"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="5dp"
         android:text="查看留言" />
 
-</LinearLayout>
+</noteSystem.NoteView>
