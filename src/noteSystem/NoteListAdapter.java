@@ -9,6 +9,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import android.content.Context;
+import android.opengl.Visibility;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +24,7 @@ public class NoteListAdapter extends BaseAdapter {
 	private List<ParseObject> note_list;
 	private NoteTag noteTag;
 	private NoteDatabase noteDatabase;
+	private String username = "jiachingTest";
 
 	public NoteListAdapter(Context context) {
 		// TODO Auto-generated constructor stub
@@ -91,6 +93,7 @@ public class NoteListAdapter extends BaseAdapter {
 				"message"));
 		noteTag.tvRabbitCount.setText(String.valueOf(note_list.get(position)
 				.getInt("rabbit_count")));
+
 		return convertView;
 	}
 

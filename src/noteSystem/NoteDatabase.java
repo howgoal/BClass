@@ -26,6 +26,9 @@ public class NoteDatabase {
 		}
 		return noteDatabaseInstance;
 	}
+	public String getUserName() {
+		return "jiachingTest";
+	}
 	public void insertNote(String username,String message) {
 		ParseObject note = new ParseObject("NoteSystem");
 		note.put("author", username);

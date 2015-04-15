@@ -72,12 +72,20 @@ public class NoteTag {
 				.findViewById(R.id.note_row_btn_edit);
 		buttonDeleteNote = (ImageButton) convertView
 				.findViewById(R.id.note_row_btn_delete);
-
 		buttonDisaplyReply.setOnClickListener(displyReplyListener);
 		buttonGetRabbit.setOnClickListener(getRabbitListener);
 		buttonCreateReply.setOnClickListener(createReplyListener);
-		buttonEditNote.setOnClickListener(editNoteListener);
-		buttonDeleteNote.setOnClickListener(deleteNoteListener);
+		if(noteDatabase.getUserName().equals(object.getString("author"))) {
+	
+			
+			buttonEditNote.setOnClickListener(editNoteListener);
+			buttonDeleteNote.setOnClickListener(deleteNoteListener);
+		} 
+		else {
+			buttonDeleteNote.setVisibility(View.GONE);
+			buttonEditNote.setVisibility(View.GONE);
+		}
+		
 	}
 
 	public void setNoteID(String id) {
