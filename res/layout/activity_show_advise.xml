@@ -193,13 +193,6 @@
             	android:text="回上一頁" />
             
         </LinearLayout>
-
-        <ListView
-            android:id="@+id/listView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ListView>
-        
     </LinearLayout>
 
 </FrameLayout>
