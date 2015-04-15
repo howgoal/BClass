@@ -1,18 +1,34 @@
-<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="10"
     android:background="@drawable/sky_back"
+    android:orientation="vertical"
     tools:context="bclassMain.NewVoteActivity"
     tools:ignore="MergeRootFrame" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_x="0dp"
-        android:layout_y="63dp"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/imgview_new_vote" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp" 
+        android:layout_weight="1.4"
+        android:orientation="vertical"
+        android:padding="5dp" >
 
         <EditText
             android:id="@+id/voteTitle"
@@ -23,20 +39,20 @@
             android:drawableLeft="@drawable/edit"
             android:drawablePadding="10dp"
             android:ems="10"
-            android:textColorHint="#5e6472"
             android:hint="標題"
-            android:padding="10dp" >
+            android:padding="10dp"
+            android:textColorHint="#5e6472" >
 
-            <requestFocus /> 
+            <requestFocus />
         </EditText>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:layout_x="0dp"
-        android:layout_y="130dp"
-        android:orientation="vertical" >
+        android:layout_height="0dp"
+        android:layout_weight="3.5"
+        android:orientation="vertical"
+        android:padding="5dp" >
 
         <EditText
             android:id="@+id/voteDetail"
@@ -46,19 +62,65 @@
             android:background="@drawable/rounded_edittext"
             android:ems="10"
             android:gravity="left"
-            android:textColorHint="#5e6472"
             android:hint="詳細資訊"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textColorHint="#5e6472" />
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:weightSum="1" >
+
+        <TextView
+            android:id="@+id/voteChoice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text="候選人幾位"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="23sp" />
+
+        <Spinner
+            android:id="@+id/spinnerChoice"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:weightSum="1" >
+
+        <TextView
+            android:id="@+id/voteTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.4"
+            android:gravity="center"
+            android:text="持續時間"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="23sp" />
+
+        <Spinner
+            android:id="@+id/spinnerTime"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.6" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
-        android:layout_height="110dp"
-        android:weightSum="1"
-        android:layout_x="0dp"
-        android:layout_y="420dp" >
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:weightSum="1" >
 
         <ImageButton
             android:id="@+id/voteOK"
@@ -79,67 +141,6 @@
             android:padding="5dp"
             android:scaleType="fitCenter"
             android:src="@drawable/btn_cancel" />
-
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:weightSum="1"
-        android:layout_x="0dp"
-        android:layout_y="305dp" >
-
-        <TextView
-            android:id="@+id/voteChoice"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:textSize="23sp"
-            android:gravity="center"
-            android:text="候選人幾位"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/spinnerChoice"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:weightSum="1"
-        android:layout_x="0dp"
-        android:layout_y="375dp" >
-
-        <TextView
-            android:id="@+id/voteTime"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.5"
-            android:gravity="center"
-            android:textSize="23sp"
-            android:text="持續時間"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-
-        <Spinner
-            android:id="@+id/spinnerTime"
-            android:layout_width="0dp"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.5" />
-
-    </LinearLayout>
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_x="0dp"
-        android:layout_y="-3dp"
-        android:src="@drawable/imgview_new_vote" />
-
-</AbsoluteLayout>
+</LinearLayout>
