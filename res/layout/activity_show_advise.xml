@@ -1,199 +1,267 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="10"
+    android:background="@drawable/orange_back"
+    android:orientation="vertical"
     tools:context="bclassTeacher.ShowAdviseActivity"
     tools:ignore="MergeRootFrame" >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
         android:orientation="vertical" >
-        
-        <TextView
-        	android:id="@+id/ad_show_title"
-        	android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="10dp"
-        	android:layout_marginLeft="10dp"
-        	android:text="教師評量結果" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/imgview_grade_result" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/ad_show_detail"
             android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="10dp"
-        	android:layout_marginLeft="10dp"
-            android:text="(數字越高表示評價越好)" />
+            android:layout_height="fill_parent"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:text="(數字越高表示評價越好)"
+            android:textSize="20sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            
-            <TextView
-            	android:id="@+id/totalPeople"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="10dp"
-            	android:text="總建議人數: " />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/peopleNum"
-                android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="20dp"
-                android:text="00" />
-            
-            <TextView
-                android:id="@+id/people"
-                android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="10dp"
-                android:text="人" />
-        </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:gravity="center"
+        android:weightSum="1" >
+
+        <TextView
+            android:id="@+id/totalPeople"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.4"
+            android:text="總建議人數:"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/peopleNum"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.1"
+            android:text="00"
+            android:textSize="28sp" />
+
+        <TextView
+            android:id="@+id/people"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.07"
+            android:paddingTop="5dp"
+            android:text="人"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:paddingLeft="20dp" >
 
         <TextView
             android:id="@+id/question1"
             android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="20dp"
-        	android:layout_marginLeft="10dp"
-            android:text="@string/question1" />
+            android:layout_height="wrap_content"
+            android:text="@string/question1"
+            android:textSize="15sp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            
-            <TextView
-            	android:id="@+id/pointTitle1"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="50dp"
-            	android:text="@string/points" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/pointResult1"
-                android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="20dp"
-                android:text="0.0" />  
-        </LinearLayout>
-        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:paddingLeft="45dp" >
+
+        <TextView
+            android:id="@+id/pointTitle1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points" 
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/pointResult1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="0.0"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:paddingLeft="20dp" >
+
         <TextView
             android:id="@+id/question2"
             android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="10dp"
-        	android:layout_marginLeft="10dp"
-            android:text="@string/question2" />
+            android:layout_height="wrap_content"
+            android:text="@string/question2"
+            android:textSize="15sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            
-            <TextView
-            	android:id="@+id/pointTitle2"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="50dp"
-            	android:text="@string/points" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/pointResult2"
-                android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="20dp"
-                android:text="0.0" />  
-        </LinearLayout>
-        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:paddingLeft="45dp" >
+
+        <TextView
+            android:id="@+id/pointTitle2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/pointResult2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="0.0"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:paddingLeft="20dp" >
+
         <TextView
             android:id="@+id/question3"
             android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="10dp"
-        	android:layout_marginLeft="10dp"
-            android:text="@string/question3" />
+            android:layout_height="wrap_content"
+            android:text="@string/question3"
+            android:textSize="15sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            
-            <TextView
-            	android:id="@+id/pointTitle3"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="50dp"
-            	android:text="@string/points" />
+    </LinearLayout>
 
-            <TextView
-                android:id="@+id/pointResult3"
-                android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="20dp"
-                android:text="0.0" />  
-        </LinearLayout>
-        
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:paddingLeft="45dp" >
+
+        <TextView
+            android:id="@+id/pointTitle3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/pointResult3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="0.0"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:paddingLeft="20dp" >
+
         <TextView
             android:id="@+id/question4"
             android:layout_width="wrap_content"
-        	android:layout_height="wrap_content"
-        	android:layout_marginTop="10dp"
-        	android:layout_marginLeft="10dp"
-            android:text="@string/question4" />
+            android:layout_height="wrap_content"
+            android:text="@string/question4"
+            android:textSize="15sp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            
-            <TextView
-            	android:id="@+id/pointTitle4"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="50dp"
-            	android:text="@string/points" />
-
-            <TextView
-                android:id="@+id/pointResult4"
-                android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="10dp"
-        		android:layout_marginLeft="20dp"
-                android:text="0.0" />  
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            
-            <Button
-            	android:id="@+id/seeMore"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="20dp"
-        		android:layout_marginLeft="10dp"
-            	android:text="觀看其他意見" />
-
-        	<Button
-            	android:id="@+id/btn_back"
-            	android:layout_width="wrap_content"
-        		android:layout_height="wrap_content"
-        		android:layout_marginTop="20dp"
-        		android:layout_marginLeft="10dp"
-            	android:text="回上一頁" />
-            
-        </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
+        android:paddingLeft="45dp" >
 
+        <TextView
+            android:id="@+id/pointTitle4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/points"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/pointResult4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="0.0"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:weightSum="1" >
+
+        <ImageButton
+            android:id="@+id/seeMore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_see_other" />
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="#00000000"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_last_page" />
+
+    </LinearLayout>
+
+</LinearLayout>

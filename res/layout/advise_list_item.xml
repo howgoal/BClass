@@ -2,29 +2,30 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/listview_back" >
+    android:background="@drawable/listview_back"
+    android:orientation="vertical" >
 
     <TextView
         android:id="@+id/listview_title"
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:text="其他意見"
-        android:textSize= "28sp"
         android:gravity="center"
+        android:text="其他意見"
+        android:textSize="28sp"
         android:typeface="sans" />
-    
+
     <View
         android:layout_width="fill_parent"
         android:layout_height="3dp"
         android:background="#000000" />
 
     <ListView
-       android:id="@+id/listView_alert"
-    	android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
-    	android:divider="#3E2723"
-    	android:dividerHeight="1dp" >
+        android:id="@+id/listView_alert"
+        android:layout_width="fill_parent"
+        android:layout_height="390dp"
+        android:layout_weight="0.43"
+        android:divider="#3E2723"
+        android:dividerHeight="1dp" >
     </ListView>
 
 </LinearLayout>

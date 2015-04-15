@@ -18,7 +18,7 @@
             android:text="TextView" />
 
         <ImageButton
-            android:id="@+id/imageButton1"
+            android:id="@+id/btn_dialog"
             android:layout_width="10dp"
             android:layout_height="10dp"
             android:src="@drawable/custom_btn_orange" />
