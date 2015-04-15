@@ -1,74 +1,82 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/blue_back"
+    android:orientation="vertical"
+    android:weightSum="10"
     tools:context="bclassTeacher.TeacherActivity"
-    tools:ignore="MergeRootFrame" 
-    android:background="@drawable/blue_back">
+    tools:ignore="MergeRootFrame" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_TToVote"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:paddingTop="20dp"
-        android:scaleType="fitXY"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
-        android:src="@drawable/title_teacher" /> 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4.5"
+        android:orientation="vertical" >
 
-    <ImageButton
-        android:id="@+id/btn_TToVote"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/btn_testExam"
-        android:background="#00000000"
-        android:paddingBottom="10dp"
-        android:paddingRight="40dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/btn_vote" />
- 
-    <ImageButton
-        android:id="@+id/btn_testExam"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/btn_TAdvice"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/btn_TAdvice"
-        android:background="#00000000"
-        android:paddingBottom="10dp"
-        android:paddingLeft="40dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/btn_testexam" />
- 
-    <ImageButton
-        android:id="@+id/btn_TAdvice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_marginBottom="21dp"
-        android:background="#00000000"
-        android:paddingLeft="40dp"
-        android:paddingTop="5dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/btn_advice" />
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:scaleType="fitCenter"
+            android:scaleX="0.8"
+            android:scaleY="0.8"
+            android:src="@drawable/title_teacher" />
+    </LinearLayout>
 
-    <ImageButton
-        android:id="@+id/btn_TBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/btn_TAdvice"
-        android:background="#00000000"
-        android:paddingRight="40dp"
-        android:paddingTop="5dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/btn_back" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5" 
+        android:gravity="center_horizontal"
+        android:weightSum="1"
+        android:paddingBottom="10dp">
 
-</RelativeLayout>
+        <ImageButton
+            android:id="@+id/btn_testExam"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.35"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_testexam" />
+
+        <ImageButton
+            android:id="@+id/btn_TToVote"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.35"
+            android:background="#00000000"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_vote" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.5"
+        android:gravity="center_horizontal"
+        android:paddingTop="10dp"
+        android:weightSum="1" >
+
+        <ImageButton
+            android:id="@+id/btn_TAdvice"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:layout_weight="0.35"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_advice" />
+
+        <ImageButton
+            android:id="@+id/btn_TBack"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:layout_weight="0.35"
+            android:scaleType="fitCenter"
+            android:src="@drawable/btn_back" />
+    </LinearLayout>
+
+</LinearLayout>
