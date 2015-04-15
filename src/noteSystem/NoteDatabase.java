@@ -1,5 +1,13 @@
 package noteSystem;
 
+import java.util.List;
+
+import android.util.Log;
+import android.widget.ListView;
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
@@ -7,6 +15,7 @@ public class NoteDatabase {
 	String databaseTable = "NoteSystem";
 	public static NoteDatabase noteDatabaseInstance = null;
 	ParseQuery<ParseObject> query;
+	List<ParseObject> list;
 	private NoteDatabase() {
 		
 		// TODO Auto-generated constructor stub
@@ -43,8 +52,24 @@ public class NoteDatabase {
 	public void update() {
 		
 	}
-	public ParseQuery<ParseObject> getQuery() {
-		return ParseQuery.getQuery("NoteSystem");
+	public ParseQuery<ParseObject> getQuery(String table) {
+		return ParseQuery.getQuery(table);
 	}
+	public List<ParseObject> getReplyListByParent_id(String _objectId) {
+		try {
+			query= getQuery("NoteSystem");
+			list = query.whereEqualTo("objectId", _objectId).find();
+			query = getQuery("NoteReplySystem");
+			list = query.whereEqualTo("parent_objectId", list.get(0)).find();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		return list;
+	}
+	
+	
 
 }

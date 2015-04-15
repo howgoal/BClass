@@ -56,7 +56,7 @@ public class NoteActivity extends Activity {
 		// null);
 		// viewFooter = LayoutInflater.from(this).inflate(
 		// R.layout.note_footer, null);
-
+		
 		listViewNote = (ListView) findViewById(R.id.note_listView);
 		// listViewNote.addHeaderView(viewHead, null, false);
 		// listViewNote.addFooterView(viewFooter, null, false);
