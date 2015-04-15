@@ -14,8 +14,7 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:orientation="vertical"
-        android:weightSum="10" >
+        android:orientation="vertical" >
 
         <ImageView
             android:id="@+id/imageView1"
