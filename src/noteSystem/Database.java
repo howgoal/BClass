@@ -1,30 +1,28 @@
 package noteSystem;
 
+
 import java.util.List;
 
 import android.util.Log;
-import android.widget.ListView;
-
-import com.parse.FindCallback;
 import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
-public class NoteDatabase {
+public class Database {
 	String databaseTable = "NoteSystem";
-	public static NoteDatabase noteDatabaseInstance = null;
+	public static Database databaseInstance = null;
 	ParseQuery<ParseObject> query;
 	List<ParseObject> list;
-	private NoteDatabase() {
+	private Database() {
 		
 		// TODO Auto-generated constructor stub
 	}
-	public static NoteDatabase getInstance() {
-		if(noteDatabaseInstance == null) {
-			noteDatabaseInstance = new NoteDatabase();
+	public static Database getInstance() {
+		if(databaseInstance == null) {
+			databaseInstance = new Database();
 		}
-		return noteDatabaseInstance;
+		return databaseInstance;
 	}
 	public String getUserName() {
 		return "jiachingTest";
@@ -40,7 +38,7 @@ public class NoteDatabase {
 		note.put("is_Solved", false);
 		note.saveInBackground();
 	}
-	public void insertReply(String id,String username,String message) {
+	public void createReply(String id,String username,String message) {
 		ParseObject note = new ParseObject("NoteReplySystem");
 		note.put("author", username);
 		note.put("message", message);
@@ -72,7 +70,28 @@ public class NoteDatabase {
 		
 		return list;
 	}
-	
+	public void updateCount(String objectId,String table,final String column,final boolean status) {
+		query = ParseQuery.getQuery(table);
+		// Retrieve the object by id
+		query.getInBackground(objectId, new GetCallback<ParseObject>() {
+		    public void done(ParseObject object, ParseException e) {
+		        if (e == null) {
+		            // Now let's update it with some new data. In this case, only cheatMode and score
+		            // will get sent to the Parse Cloud. playerName hasn't changed.
+		        	if(status) {
+		        		object.increment(column);
+			        	object.saveInBackground();
+		        	}
+		        	else {
+		        		Log.v("test", "test");
+		        		object.increment(column,-1);
+			        	object.saveInBackground();
+		        	}
+		        	
+		        }
+		    }
+		});
+	}
 	public void updateMessage(String objectId,String table,final String _message) {
 		query = getQuery(table);
 		query.getInBackground(objectId, new GetCallback<ParseObject>() {
@@ -111,5 +130,6 @@ public class NoteDatabase {
 		    }
 		});
 	}
+	
 
 }
