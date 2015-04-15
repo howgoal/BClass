@@ -70,6 +70,43 @@ public class NoteDatabase {
 		return list;
 	}
 	
-	
+	public void updateMessage(String objectId,String table,final String _message) {
+		query = getQuery(table);
+		query.getInBackground(objectId, new GetCallback<ParseObject>() {
+		    public void done(ParseObject object, ParseException e) {
+		        if (e == null) {
+		            // Now let's update it with some new data. In this case, only cheatMode and score
+		            // will get sent to the Parse Cloud. playerName hasn't changed.
+		        	object.put("message", _message);
+		        	object.saveInBackground();
+		        }
+		    }
+		});
+	}
+	public void delete(String objectId,final String table) {
+		query = getQuery(table);
+		
+		query.getInBackground(objectId, new GetCallback<ParseObject>() {
+		    public void done(ParseObject object, ParseException e) {
+		        if (e == null) {
+		        	if(table.equals("NoteSystem")) {
+		        		ParseQuery<ParseObject> query1 = getQuery("NoteReplySystem");
+		        		query1.whereEqualTo("parent_objectId", object);
+		        		 try {
+							for (ParseObject reply_list : query1.find()) {
+							        // This does not require a network access.
+									Log.v("delete", reply_list.getObjectId());
+							       reply_list.delete();
+							    }
+						} catch (ParseException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+		        	}
+		        	object.deleteInBackground();	
+		        }
+		    }
+		});
+	}
 
 }

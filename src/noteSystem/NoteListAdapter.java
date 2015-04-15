@@ -77,7 +77,7 @@ public class NoteListAdapter extends BaseAdapter {
 			convertView = inflater.inflate(R.layout.note_row, null);
 
 			// 建構listItem內容view
-			noteTag = new NoteTag(convertView,activityContext);
+			noteTag = new NoteTag(convertView,activityContext,note_list.get(position));
 			//Log.v("setID",note_list.get(position).getObjectId());
 			// 設置容器內容
 			convertView.setTag(noteTag);
