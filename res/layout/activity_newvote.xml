@@ -56,12 +56,13 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="110dp"
+        android:weightSum="1"
         android:layout_x="0dp"
         android:layout_y="420dp" >
 
         <ImageButton
             android:id="@+id/voteOK"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="#00000000"
@@ -71,7 +72,7 @@
 
         <ImageButton
             android:id="@+id/voteCancel"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:background="#00000000"
@@ -84,46 +85,52 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:weightSum="1"
         android:layout_x="0dp"
         android:layout_y="305dp" >
 
         <TextView
             android:id="@+id/voteChoice"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0.40"
+            android:layout_weight="0.5"
+            android:textSize="23sp"
             android:gravity="center"
             android:text="候選人幾位"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/spinnerChoice"
-            android:layout_width="180dp"
-            android:layout_height="fill_parent" />
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="70dp"
+        android:weightSum="1"
         android:layout_x="0dp"
         android:layout_y="375dp" >
 
         <TextView
             android:id="@+id/voteTime"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="2.19"
+            android:layout_weight="0.5"
             android:gravity="center"
+            android:textSize="23sp"
             android:text="持續時間"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
         <Spinner
             android:id="@+id/spinnerTime"
-            android:layout_width="180dp"
-            android:layout_height="fill_parent" />
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.5" />
 
     </LinearLayout>
 
