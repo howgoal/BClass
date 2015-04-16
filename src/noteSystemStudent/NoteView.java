@@ -25,7 +25,7 @@ public class NoteView extends LinearLayout {
 	private TextView tvMessage;
 	private TextView tvRabbitCount;
 	private Button btnGetRabbit;
-	private Button btnCreateReply;
+	private ImageButton btnCreateReply;
 	private Button btnDisplayReply;
 	private ImageButton imgBtnEditMessage;
 	private ImageButton imgBtnDelete;
@@ -57,7 +57,7 @@ public class NoteView extends LinearLayout {
 		tvRabbitCount = (TextView) findViewById(R.id.note_tv_rabbit_count);
 		// //button btnGetRabbit; btnCreateReply btnDisplayReply
 		btnGetRabbit = (Button) findViewById(R.id.note_btn_get_rabbit);
-		btnCreateReply = (Button) findViewById(R.id.note_btn_create_reply);
+		btnCreateReply = (ImageButton) findViewById(R.id.note_btn_create_reply);
 		btnDisplayReply = (Button) findViewById(R.id.note_btn_disply_reply);
 		// button1.setOnClickListener(listener);
 		// Image button imgBtnEditMessage imgBtnDelete
