@@ -2,30 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:weightSum="10"
     android:background="#FFFFB5"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/note_create_note_title"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="34dp"
-        android:text="Create note" />
+        android:layout_height="45dp"
+        android:background="#424242"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
 
- 	<View
-        android:layout_width="fill_parent"
+        <TextView
+            android:id="@+id/note_create_note_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="Create note"
+            android:textColor="#EEEEEE"
+            android:textSize="23sp"
+            android:textStyle="normal|bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:background="#000000" />
+        android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/note_cteate_editText_message"
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="#000000" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:ems="10"
-        android:gravity="start"
-        android:hint="紙條內容..."
-        android:inputType="textMultiLine" >
+        android:layout_height="0dp"
+        android:layout_weight="9"
+        android:orientation="vertical" >
 
-    </EditText>
+        <EditText
+            android:id="@+id/note_cteate_editText_message"
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:ems="10"
+            android:gravity="start"
+            android:hint="紙條內容..."
+            android:inputType="textMultiLine" >
+
+            <requestFocus />
+        </EditText>
+
+    </LinearLayout>
 
 
 </LinearLayout>
