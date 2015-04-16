@@ -63,7 +63,7 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 	private Thread getDataThread;
 	private Handler loadDataHandler;
 	private UserInstance userInstance;
-	
+	private status status;
 
 	private NoteListAdapter listAdapter;
 	protected void onCreate(Bundle savedInstanceState) {
@@ -72,6 +72,7 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 		setContentView(R.layout.activity_note);
 		
 		userInstance = UserInstance.getInstance();
+		status = status.getInstance();
 		user = userInstance.name;
 		Log.v("user",userInstance.name);
 		
@@ -243,28 +244,29 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 									public void onClick(DialogInterface dialog,
 											int which) {
 										// TODO Auto-generated method stub
-
+										status.setFalse();
 									}
 
 								})
 						.setPositiveButton("Submit",
 								new DialogInterface.OnClickListener() {
-
+								
 									@Override
 									public void onClick(DialogInterface dialog,
 											int which) {
 										// TODO Auto-generated method stub
-
+										status.setTrue();
 										note_list
 												.add(0, new Note(
 														createNote(editTextNote
 																.getText()
 																.toString())));
-										ListView listview = (ListView) findViewById(R.id.note_listView);
-										listview.setAdapter(new NoteListAdapter(
-												NoteActivity.this, note_list));
+										listView = (ListView) findViewById(R.id.note_listView);
+										listAdapter.setList(note_list);
+										listAdapter.notifyDataSetChanged();
 										toast.show();
 										listView.setSelection(1);
+										status.setFalse();
 										// noteListAdapter.updateNoteDate();
 										// noteListAdapter.notifyDataSetChanged();
 
@@ -341,18 +343,22 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-//		try {
-//			while(true) {
-//				Thread.sleep(3000);
-//				Message msg = new Message();
-//				msg.what =1;
-//				loadDataHandler.sendMessage(msg);
-//			}
-//			
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		try {
+			while(true) {
+				Thread.sleep(3000);
+				if(status.getStatus() == false) {
+					
+					Message msg = new Message();
+					msg.what =1;
+					loadDataHandler.sendMessage(msg);
+				}
+				
+			}
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }

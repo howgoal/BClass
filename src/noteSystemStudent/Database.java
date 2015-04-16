@@ -14,8 +14,9 @@ public class Database {
 	public static Database databaseInstance = null;
 	ParseQuery<ParseObject> query;
 	List<ParseObject> list;
+	private status status;
 	private Database() {
-		
+		status = status.getInstance();
 		// TODO Auto-generated constructor stub
 	}
 	public static Database getInstance() {
@@ -75,7 +76,7 @@ public class Database {
 			e.printStackTrace();
 		}
 		
-		
+		status.setFalse();
 		return list;
 	}
 	public void updateCount(String objectId,String table,final String column,final boolean status) {
@@ -84,6 +85,7 @@ public class Database {
 		query.getInBackground(objectId, new GetCallback<ParseObject>() {
 		    public void done(ParseObject object, ParseException e) {
 		        if (e == null) {
+		        	
 		            // Now let's update it with some new data. In this case, only cheatMode and score
 		            // will get sent to the Parse Cloud. playerName hasn't changed.
 		        	if(status) {
@@ -95,11 +97,14 @@ public class Database {
 		        		Log.v("test", "test");
 		        		object.increment(column,-1);
 			        	object.saveInBackground();
+			        	
 		        	}
+		        	
 		        	
 		        }
 		    }
 		});
+		
 	}
 	public void updateMessage(String objectId,String table,final String _message) {
 		query = getQuery(table);
@@ -110,9 +115,12 @@ public class Database {
 		            // will get sent to the Parse Cloud. playerName hasn't changed.
 		        	object.put("message", _message);
 		        	object.saveInBackground();
+		        	status.setFalse();
+		        	
 		        }
 		    }
 		});
+		
 	}
 	public void delete(String objectId,final String table) {
 		query = getQuery(table);
@@ -130,6 +138,7 @@ public class Database {
 							       reply_list.delete();
 							    }
 							object.delete();	
+							status.setFalse();
 						} catch (ParseException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();

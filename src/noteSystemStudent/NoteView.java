@@ -33,6 +33,7 @@ public class NoteView extends LinearLayout {
 	private LayoutInflater inflater;
 	private Note note;
 	private UserInstance userInstance;
+	private status status;
 
 	public NoteView(Context context) {
 		super(context);
@@ -55,6 +56,7 @@ public class NoteView extends LinearLayout {
 		super.onFinishInflate();
 		inflater = LayoutInflater.from(getContext());
 		userInstance = UserInstance.getInstance();
+		status = status.getInstance();
 		tvAuthor = (TextView) findViewById(R.id.note_tv_username);
 		tvMessage = (TextView) findViewById(R.id.note_tv_user_message);
 		tvRabbitCount = (TextView) findViewById(R.id.note_tv_rabbit_count);
@@ -111,6 +113,7 @@ public class NoteView extends LinearLayout {
 
 		@Override
 		public void onClick(View v) {
+			status.setTrue();
 			// TODO Auto-generated method stub
 			View convertView = inflater.inflate(R.layout.note_reply_layout, null);
 			ListView listViewReply = (ListView) convertView
@@ -126,10 +129,13 @@ public class NoteView extends LinearLayout {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			status.setTrue();
+			
 			int count = Integer.parseInt(tvRabbitCount.getText().toString());
 			if (note.getIsClicked()) {
 				// true : mean I click the button when button text = I have no
 				// problem so rabbit-1
+				
 				note.setClickedStatus(false);
 				tvRabbitCount.setText(String.valueOf(count - 1));
 				btnGetRabbit.setText("Me too");
@@ -152,6 +158,7 @@ public class NoteView extends LinearLayout {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			status.setTrue();
 			Log.v("editNoteListener", "clickmsg");
 
 			View customDialog = inflater.inflate(
@@ -170,7 +177,7 @@ public class NoteView extends LinearLayout {
 								public void onClick(DialogInterface dialog,
 										int which) {
 									// TODO Auto-generated method stub
-
+									
 								}
 
 							})
@@ -206,6 +213,7 @@ public class NoteView extends LinearLayout {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
+			status.setTrue();
 			View customDialog = inflater.inflate(
 					R.layout.note_create_reply_layout, null);
 			final TextView tvNoteMessage = (TextView) customDialog

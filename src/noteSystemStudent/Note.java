@@ -28,9 +28,10 @@ public class Note {
 	private boolean isClicked = false;
 	private String databaseTable = "NoteSystem";
 	private Database database;
-
+	private status status;
 	public Note(ParseObject object) {
 		// TODO Auto-generated constructor stub
+		status = status.getInstance();
 		id = object.getObjectId();
 		author = object.getString("author");
 		message = object.getString("message");
@@ -39,7 +40,7 @@ public class Note {
 		is_Hidden = object.getBoolean("is_Hidden");
 		is_Delete = object.getBoolean("is_Delete");
 		is_solved = object.getBoolean("is_solved");
-
+		
 		database = Database.getInstance();
 
 //		try {
@@ -109,6 +110,7 @@ public class Note {
 		    			is_Delete = object.getBoolean("is_Delete");
 		    			is_solved = object.getBoolean("is_solved");
 		    			Log.v("update", "update");
+		    			status.setFalse();
 		    		}
 
 		        } else {
