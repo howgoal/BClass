@@ -98,8 +98,9 @@ public class NoteActivity extends Activity implements OnScrollListener {
 					note_list.add(new Note(i));
 					listView.setAdapter(new NoteListAdapter(NoteActivity.this,
 							note_list));
-					listView.setSelection(1);
+					
 				}
+				listView.setSelection(1);
 
 			} else {
 				Log.v("null", "null");
@@ -108,6 +109,7 @@ public class NoteActivity extends Activity implements OnScrollListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		listView.setSelection(1);
 	}
 
 	private void loadData() {
@@ -185,7 +187,7 @@ public class NoteActivity extends Activity implements OnScrollListener {
 										listview.setAdapter(new NoteListAdapter(
 												NoteActivity.this, note_list));
 										toast.show();
-
+										listView.setSelection(1);
 										// noteListAdapter.updateNoteDate();
 										// noteListAdapter.notifyDataSetChanged();
 
@@ -223,7 +225,7 @@ public class NoteActivity extends Activity implements OnScrollListener {
 					initData();
 					Toast.makeText(getApplicationContext(),
 							"資料更新成功", 1000).show();
-					// Refresh();//沒在更新資料時
+					initData();//沒在更新資料時
 				}
 				listView.setSelection(1);// 不管更不更新，都移到第一項
 			}
