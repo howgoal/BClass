@@ -36,6 +36,7 @@ public class MainActivity extends Activity {
 	private static boolean tmp_log;
 	private static String id_tmp;
 	private String str_id;
+	private UserInstance user;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +149,8 @@ public class MainActivity extends Activity {
 	        	            id_tmp = str_id;
 	        	            if(mode.equals("t") && str_id.equals("t")) {
 	        		        	logged = true;
+	        		        	user = UserInstance.getInstance();
+	        		        	user.init(object);
 	        	            	Toast.makeText(MainActivity.this, "登錄成功，老師您好", Toast.LENGTH_SHORT).show();
 	        	            	Intent intent_teacher = new Intent();
 		        				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
@@ -157,6 +160,8 @@ public class MainActivity extends Activity {
 	        	            else if(mode.equals("s") && str_id.equals("s")) {
 	        		        	logged = true;
 	        	            	Toast.makeText(MainActivity.this, "登錄成功，同學你好", Toast.LENGTH_SHORT).show();
+	        		        	user = UserInstance.getInstance();
+	        		        	user.init(object);
 	        	            	Intent intent_student = new Intent();
 	        					intent_student.setClass(MainActivity.this, StudentActivity.class);
 	        					startActivity(intent_student);
