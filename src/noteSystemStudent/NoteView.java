@@ -28,7 +28,7 @@ public class NoteView extends LinearLayout {
 	private ImageButton btnCreateReply;
 	private Button btnDisplayReply;
 	private ImageButton imgBtnEditMessage;
-	private ImageButton imgBtnDelete;
+	ImageButton imgBtnDelete;
 	private LayoutInflater inflater;
 	private Note note;
 
@@ -68,7 +68,7 @@ public class NoteView extends LinearLayout {
 
 		btnGetRabbit.setOnClickListener(getRabbitListener);
 		imgBtnEditMessage.setOnClickListener(editNoteListener);
-		imgBtnDelete.setOnClickListener(deleteNoteListener);
+//		imgBtnDelete.setOnClickListener(deleteNoteListener);
 		btnCreateReply.setOnClickListener(createReplyListener);
 		btnDisplayReply.setOnClickListener(displyReplyListener);
 	}
@@ -194,41 +194,7 @@ public class NoteView extends LinearLayout {
 		}
 
 	};
-	private Button.OnClickListener deleteNoteListener = new OnClickListener() {
-
-		@Override
-		public void onClick(View v) {
-			// TODO Auto-generated method stub
-			new AlertDialog.Builder(getContext())
-					.setTitle("確認刪除這則紙條嗎?")
-					.setNegativeButton("取消",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									// TODO Auto-generated method stub
-
-								}
-
-							})
-					.setPositiveButton("確認",
-							new DialogInterface.OnClickListener() {
-
-								@Override
-								public void onClick(DialogInterface dialog,
-										int which) {
-									// TODO Auto-generated method stub
-									note.delete();
-									Toast.makeText(getContext(),
-											"資料刪除成功", 1000).show();
-								}
-
-							}).create().show();
-
-		}
-
-	};
+	
 	private Button.OnClickListener createReplyListener = new OnClickListener() {
 
 		@Override
