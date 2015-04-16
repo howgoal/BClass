@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#FFFFB5"
     android:orientation="vertical" >
 
@@ -20,7 +20,6 @@
         android:id="@+id/note_cteate_editText_message"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:ems="10"
         android:gravity="start"
         android:hint="紙條內容..."
         android:inputType="textMultiLine" >
