@@ -66,7 +66,7 @@
             android:name="bclassTeacher.TExamActivity"
             android:label="@string/title_activity_texam" >
         </activity>
-        <activity android:name="noteSystem.NoteActivity" >
+        <activity android:name="noteSystemStudent.NoteActivity" >
         </activity>
         <activity
             android:name="bclassStudent.NewAdviseActivity"
@@ -92,7 +92,7 @@
             android:name="bclassStudent.SExamActivity"
             android:label="@string/title_activity_sexam" >
         </activity>
-        <activity android:name="noteSystem.NoteActivity" android:multiprocess="false"></activity>
+        <activity android:name="noteSystemStudent.NoteActivity" android:multiprocess="false"></activity>
     </application>
 
 </manifest>

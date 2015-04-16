@@ -1,4 +1,4 @@
-package noteReplySystem;
+package noteReplySystemStudent;
 
 import com.example.bclass.R;
 

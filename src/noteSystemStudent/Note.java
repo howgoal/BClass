@@ -1,14 +1,17 @@
-package noteSystem;
+package noteSystemStudent;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import noteReplySystem.Reply;
+import noteReplySystemStudent.Reply;
+import android.util.Log;
 import android.widget.ListView;
 
 import com.example.bclass.R;
+import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 public class Note {
 	// Database column
@@ -23,7 +26,7 @@ public class Note {
 	List<ParseObject> getRabbit_lsit;
 	// note self
 	private boolean isClicked = false;
-
+	private String databaseTable = "NoteSystem";
 	private Database database;
 
 	public Note(ParseObject object) {
@@ -58,6 +61,14 @@ public class Note {
 
 	public void updateRabbitCount(boolean status) {
 		database.updateCount(id, "NoteSystem", "rabbit_count", status);
+		if(status) {
+			//mean 
+			rabbit_count+=1;
+			
+		}
+		else {
+			rabbit_count-=1;
+		}
 	}
 	public void updateMessage(String _message) {
 		database.updateMessage(id, "NoteSystem", _message);
@@ -82,5 +93,31 @@ public class Note {
 		}
 		return reply_list;
 	}
+	public void update() {
+		//ParseObject object = database.updateObject(id, databaseTable);			
+		ParseQuery<ParseObject> query = database.getQuery(databaseTable);
+		query.getInBackground(id, new GetCallback<ParseObject>() {
+		    public void done(ParseObject object, ParseException e) {
+		        if (e == null) {
+		            // object will be your game score
+		        	if(object != null) {
+		    			author = object.getString("author");
+		    			message = object.getString("message");
+		    			reply_count = object.getInt("reply_count");
+		    			rabbit_count = object.getInt("rabbit_count");
+		    			is_Hidden = object.getBoolean("is_Hidden");
+		    			is_Delete = object.getBoolean("is_Delete");
+		    			is_solved = object.getBoolean("is_solved");
+		    			Log.v("update", "update");
+		    		}
 
-}
+		        } else {
+		            // something went wrong
+		        }
+		    }
+		});
+				
+
+
+	}
+}	

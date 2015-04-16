@@ -1,6 +1,6 @@
-package noteReplySystem;
+package noteReplySystemStudent;
 
-import noteSystem.Database;
+import noteSystemStudent.Database;
 import android.app.DownloadManager.Query;
 import android.util.Log;
 

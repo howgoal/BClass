@@ -1,7 +1,9 @@
-package noteSystem;
+package noteSystemStudent;
 
-import noteReplySystem.ReplyListAdapter;
+import noteReplySystemStudent.ReplyListAdapter;
+
 import com.example.bclass.R;
+
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -75,6 +77,7 @@ public class NoteView extends LinearLayout {
 		tvAuthor.setText(note.author);
 		tvMessage.setText(note.message);
 		tvRabbitCount.setText(String.valueOf(note.rabbit_count));
+		Log.v("update", "updateRabbit");
 		// button
 
 		if (note.getIsClicked()) {
@@ -94,7 +97,8 @@ public class NoteView extends LinearLayout {
 			btnDisplayReply.setText("目前沒有回覆");
 			btnDisplayReply.getBackground().setAlpha(0);
 		}
-
+		
+		//note.update();
 	}
 	private Button.OnClickListener displyReplyListener = new OnClickListener() {
 
@@ -132,7 +136,7 @@ public class NoteView extends LinearLayout {
 				btnGetRabbit.setText("I have no problem");
 				note.updateRabbitCount(true);
 			}
-
+			note.update();
 		}
 
 	};
