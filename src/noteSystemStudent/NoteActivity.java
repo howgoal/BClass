@@ -321,7 +321,7 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 		// TODO Auto-generated method stub
 		try {
 			while(true) {
-				Thread.sleep(2000);
+				Thread.sleep(3000);
 				Message msg = new Message();
 				msg.what =1;
 				loadDataHandler.sendMessage(msg);
