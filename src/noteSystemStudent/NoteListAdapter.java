@@ -22,12 +22,14 @@ public class NoteListAdapter extends BaseAdapter {
 	private Context noteContext;
 	private LayoutInflater inflater;
 	private ImageButton deleteButton;
+	private status status;
 
 	public NoteListAdapter(Context _context, List<Note> notes) {
 		// TODO Auto-generated constructor stub
 		noteContext = _context;
 		inflater = LayoutInflater.from(_context);
 		list_note = notes;
+		status = status.getInstance();
 	}
 	public void setList(List<Note> _list) {
 		list_note = _list;
@@ -55,7 +57,7 @@ public class NoteListAdapter extends BaseAdapter {
 	@Override
 	public View getView(final int position, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
-
+		status.setFalse();
 		NoteView view;
 		if (convertView == null) {
 			view = (NoteView) inflater.inflate(R.layout.note_row, null);
