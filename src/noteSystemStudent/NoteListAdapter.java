@@ -29,6 +29,9 @@ public class NoteListAdapter extends BaseAdapter {
 		inflater = LayoutInflater.from(_context);
 		list_note = notes;
 	}
+	public void setList(List<Note> _list) {
+		list_note = _list;
+	}
 
 	@Override
 	public int getCount() {
