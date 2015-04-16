@@ -1,4 +1,4 @@
-package noteSystem;
+package noteSystemStudent;
 
 import java.util.List;
 

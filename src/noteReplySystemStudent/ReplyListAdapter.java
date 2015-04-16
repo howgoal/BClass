@@ -1,9 +1,9 @@
-package noteReplySystem;
+package noteReplySystemStudent;
 
 import java.util.List;
 
-import noteSystem.Note;
-import noteSystem.NoteView;
+import noteSystemStudent.Note;
+import noteSystemStudent.NoteView;
 
 import com.example.bclass.R;
 

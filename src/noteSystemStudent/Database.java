@@ -1,4 +1,4 @@
-package noteSystem;
+package noteSystemStudent;
 
 
 import java.util.List;
@@ -50,8 +50,16 @@ public class Database {
 		note.saveInBackground();
 	}
 	
-	public void update() {
-		
+	public ParseObject updateObject(String objectId,String table) {
+		query = getQuery(table);
+		query.whereEqualTo("objectId", objectId);
+		try {
+			return query.getFirst();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
 	}
 	public ParseQuery<ParseObject> getQuery(String table) {
 		return ParseQuery.getQuery(table);
@@ -81,6 +89,7 @@ public class Database {
 		        	if(status) {
 		        		object.increment(column);
 			        	object.saveInBackground();
+			        	Log.v("update", "updateDatabase");
 		        	}
 		        	else {
 		        		Log.v("test", "test");
