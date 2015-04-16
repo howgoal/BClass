@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class NoteView extends LinearLayout {
 
@@ -183,6 +184,8 @@ public class NoteView extends LinearLayout {
 											.toString();
 									note.updateMessage(editTextNote.getText()
 											.toString());
+									Toast.makeText(getContext(),
+											"編輯成功", 1000).show();
 
 								}
 
@@ -217,6 +220,8 @@ public class NoteView extends LinearLayout {
 										int which) {
 									// TODO Auto-generated method stub
 									note.delete();
+									Toast.makeText(getContext(),
+											"資料刪除成功", 1000).show();
 								}
 
 							}).create().show();
@@ -261,7 +266,8 @@ public class NoteView extends LinearLayout {
 									note.reply_count +=1;
 									// noteListAdapter.updateNoteDate();
 									// noteListAdapter.notifyDataSetChanged();
-
+									Toast.makeText(getContext(),
+											"回覆成功", 1000).show();
 								}
 
 							}).create().show();
