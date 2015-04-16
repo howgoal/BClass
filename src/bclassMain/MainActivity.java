@@ -10,6 +10,7 @@ import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
+import android.R.bool;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -31,12 +32,31 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
+	private boolean logged = false;
+	private static boolean tmp_log;
+	private static String id_tmp;
+	private String str_id;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		getActionBar().hide();
 		init();
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		logged = tmp_log;
+		str_id = id_tmp;
+	}
+	
+	@Override
+	protected void onPause() {
+		super.onPause();
+		tmp_log = logged;
+		id_tmp = str_id;
 	}
 
 	public void init() {
@@ -53,15 +73,43 @@ public class MainActivity extends Activity {
 		@Override
 		public void onClick(View v) {
 			// TODO Auto-generated method stub
-
+			
 			switch (v.getId()) {
 			case R.id.btn_teacher:
-				openOptionDialog();
+				if (logged == false) {
+					openOptionDialog("t");
+				}
+				else {
+					if(str_id.equals("t")) {
+						Intent intent_teacher = new Intent();
+	    				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
+	    				startActivity(intent_teacher); 
+	    				MainActivity.this.finish(); 
+					}
+					else if(str_id.equals("s")) {
+						Toast.makeText(MainActivity.this, "抱歉!學生只能進入學生的頁面喔", Toast.LENGTH_SHORT).show();
+					}
+					else {
+					}
+				}
 				break;
 			case R.id.btn_student:
-				Intent intent_student = new Intent();
-				intent_student.setClass(MainActivity.this, StudentActivity.class);
-				startActivity(intent_student);
+				if (logged == false) {
+					openOptionDialog("s");
+				}
+				else {
+					if(str_id.equals("t")) {
+						Toast.makeText(MainActivity.this, "抱歉!老師只能進入老師的頁面喔", Toast.LENGTH_SHORT).show();
+					}
+					else if(str_id.equals("s")) {
+						Intent intent_student = new Intent();
+						intent_student.setClass(MainActivity.this, StudentActivity.class);
+						startActivity(intent_student);
+						MainActivity.this.finish(); 
+					}
+					else {
+					}
+				}
 				break;
 
 			default:
@@ -71,7 +119,7 @@ public class MainActivity extends Activity {
 		}
 	};
 	
-	public void openOptionDialog() {
+	public void openOptionDialog(final String mode) {
 		AlertDialog.Builder dialog = new AlertDialog.Builder(this);
 		LayoutInflater inflater = LayoutInflater.from(this);
 		View alert_view = inflater.inflate(R.layout.log_in_view,null);
@@ -92,14 +140,32 @@ public class MainActivity extends Activity {
 						// TODO Auto-generated method stub
 						if (object == null) {
 	        	            Log.d("!!", "此人不存在");
+	        	            logged = false;
 	        	            Toast.makeText(MainActivity.this, "登錄失敗，請再試一次", Toast.LENGTH_SHORT).show();
 	        	        } else {
 	        	            Log.d("!!", "水唷");
-	        	            Toast.makeText(MainActivity.this, "登錄成功", Toast.LENGTH_SHORT).show();
-	        				Intent intent_teacher = new Intent();
-	        				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
-	        				startActivity(intent_teacher); 
-	        				MainActivity.this.finish(); 
+	        	            str_id = object.getString("identification");
+	        	            id_tmp = str_id;
+	        	            if(mode.equals("t") && str_id.equals("t")) {
+	        		        	logged = true;
+	        	            	Toast.makeText(MainActivity.this, "登錄成功，老師您好", Toast.LENGTH_SHORT).show();
+	        	            	Intent intent_teacher = new Intent();
+		        				intent_teacher.setClass(MainActivity.this, TeacherActivity.class);
+		        				startActivity(intent_teacher);
+		        				MainActivity.this.finish(); 
+	        	            }
+	        	            else if(mode.equals("s") && str_id.equals("s")) {
+	        		        	logged = true;
+	        	            	Toast.makeText(MainActivity.this, "登錄成功，同學你好", Toast.LENGTH_SHORT).show();
+	        	            	Intent intent_student = new Intent();
+	        					intent_student.setClass(MainActivity.this, StudentActivity.class);
+	        					startActivity(intent_student);
+	        					MainActivity.this.finish(); 
+	        	            }
+	        	            else {
+	        	            	logged = false;
+	        	            	Toast.makeText(MainActivity.this, "登錄失敗，請再試一次", Toast.LENGTH_SHORT).show();
+	        	            }
 	        	        }
 					}
 	        	});      
@@ -107,12 +173,13 @@ public class MainActivity extends Activity {
 	    } );
 	    dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
 	    	public void onClick(DialogInterface arg0, int arg1) {
-	 
+	    		logged = false;
 	    	}
 	    });
 	    
 	    dialog.show();
 	}
+	
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
