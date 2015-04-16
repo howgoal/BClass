@@ -1,5 +1,6 @@
 package bclassTeacher;
 
+import noteSystemStudent.NoteActivity;
 import bclassMain.MainActivity;
 import bclassMain.NewExamActivity;
 
@@ -50,7 +51,7 @@ public class TeacherActivity extends Activity {
 			switch (v.getId()) {
 			case R.id.btn_TBack:
 				Intent intent_back = new Intent();
-				intent_back.setClass(TeacherActivity.this, MainActivity.class);
+				intent_back.setClass(TeacherActivity.this, NoteActivity.class);
 				startActivity(intent_back);
 				break;
 			case R.id.btn_TToVote:
