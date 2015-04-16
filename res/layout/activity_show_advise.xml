@@ -38,7 +38,7 @@
             android:layout_height="fill_parent"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
-            android:text="(數字越高表示評價越好)"
+            android:text="(數字越高表示評價越好,滿分五分)"
             android:textSize="20sp" />
 
     </LinearLayout>
