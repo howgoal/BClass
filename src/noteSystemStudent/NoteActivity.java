@@ -8,9 +8,11 @@ import bclassMain.MainActivity;
 import bclassStudent.StudentActivity;
 
 import com.example.bclass.R;
+import com.parse.FindCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -37,7 +39,7 @@ import android.widget.Toast;
  * @author JiaChing
  *
  */
-public class NoteActivity extends Activity implements OnScrollListener {
+public class NoteActivity extends Activity implements OnScrollListener,Runnable {
 	private String user = "jiachingTest";
 
 	boolean shouldRefresh = true, isRefreshing = false;
@@ -60,6 +62,7 @@ public class NoteActivity extends Activity implements OnScrollListener {
 	private Thread getDataThread;
 	private Handler loadDataHandler;
 
+	private NoteListAdapter listAdapter;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getActionBar().hide();
@@ -82,6 +85,34 @@ public class NoteActivity extends Activity implements OnScrollListener {
 		imgBtnCreateNote.setOnClickListener(noteBarListener);
 
 		initData();
+		
+		getDataThread = new Thread(this);
+		loadDataHandler = new Handler() {
+	        public void handleMessage(Message msg) {
+	            super.handleMessage(msg);
+			
+				ParseQuery<ParseObject> getDataQuery = database.getQuery("NoteSystem");
+				getDataQuery.orderByDescending("createdAt");
+				getDataQuery.setLimit(listViewCount);
+				getDataQuery.findInBackground(new FindCallback<ParseObject>() {
+				    public void done(List<ParseObject> scoreList, ParseException e) {
+				        if (e == null) {
+				        	note_list = new ArrayList<Note>();
+				        	for (ParseObject i : scoreList) {
+								note_list.add(new Note(i));
+							}
+				        	listAdapter.setList(note_list);
+							listAdapter.notifyDataSetChanged();
+							Log.v("update", "update");
+				        } else {
+				            Log.d("score", "Error: " + e.getMessage());
+				        }
+				    }
+				});
+				
+	        }
+	    };
+		getDataThread.start();
 	}
 
 	private void initData() {
@@ -92,16 +123,17 @@ public class NoteActivity extends Activity implements OnScrollListener {
 					.orderByDescending("createdAt").setLimit(listViewCount)
 					.find();
 			note_list = new ArrayList<Note>();
-			listView.setOnScrollListener(this);
+			
 			if (getData != null) {
 				for (ParseObject i : getData) {
 					note_list.add(new Note(i));
-					listView.setAdapter(new NoteListAdapter(NoteActivity.this,
-							note_list));
-					
 				}
+				listAdapter = new NoteListAdapter(NoteActivity.this,
+						note_list);
+				listView.setAdapter(listAdapter);
+				listAdapter.notifyDataSetChanged();
 				listView.setSelection(1);
-
+				listView.setOnScrollListener(this);
 			} else {
 				Log.v("null", "null");
 			}
@@ -109,7 +141,7 @@ public class NoteActivity extends Activity implements OnScrollListener {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		listView.setSelection(1);
+		
 	}
 
 	private void loadData() {
@@ -124,10 +156,33 @@ public class NoteActivity extends Activity implements OnScrollListener {
 			if (getData != null) {
 				for (ParseObject i : getData) {
 					note_list.add(new Note(i));
-					listView.setAdapter(new NoteListAdapter(NoteActivity.this,
-							note_list));
 				}
+				listAdapter.setList(note_list);
+				listAdapter.notifyDataSetChanged();
+				
+			} else {
+				Log.v("null", "null");
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	public void refresh() {
+		try {
+			// get data from noteSystem
 
+			List<ParseObject> getData = database.getQuery("NoteSystem")
+					.orderByDescending("createdAt").setLimit(listViewCount)
+					.find();
+			note_list = new ArrayList<Note>();
+			listView.setOnScrollListener(this);
+			if (getData != null) {
+				for (ParseObject i : getData) {
+					note_list.add(new Note(i));
+				}
+				listAdapter.setList(note_list);
+				listAdapter.notifyDataSetChanged();
 			} else {
 				Log.v("null", "null");
 			}
@@ -225,7 +280,7 @@ public class NoteActivity extends Activity implements OnScrollListener {
 					initData();
 					Toast.makeText(getApplicationContext(),
 							"資料更新成功", 1000).show();
-					initData();//沒在更新資料時
+					refresh();//沒在更新資料時
 				}
 				listView.setSelection(1);// 不管更不更新，都移到第一項
 			}
@@ -259,6 +314,23 @@ public class NoteActivity extends Activity implements OnScrollListener {
 			}
 		}
 
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		try {
+			while(true) {
+				Thread.sleep(2000);
+				Message msg = new Message();
+				msg.what =1;
+				loadDataHandler.sendMessage(msg);
+			}
+			
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
