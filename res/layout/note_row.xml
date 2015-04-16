@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <noteSystemStudent.NoteView xmlns:android="http://schemas.android.com/apk/res/android"
+
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:weightSum="10"
+
     android:background="#FEFF87"
     android:orientation="vertical"
     android:paddingBottom="10dp" >
@@ -10,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+
         android:layout_weight="1"
         android:background="#424242"
         android:gravity="center_vertical"

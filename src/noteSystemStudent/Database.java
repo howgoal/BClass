@@ -129,12 +129,13 @@ public class Database {
 									Log.v("delete", reply_list.getObjectId());
 							       reply_list.delete();
 							    }
+							object.delete();	
 						} catch (ParseException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
 						}
 		        	}
-		        	object.deleteInBackground();	
+		        	
 		        }
 		    }
 		});
