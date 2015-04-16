@@ -5,6 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 import bclassMain.MainActivity;
+import bclassMain.UserInstance;
 import bclassStudent.StudentActivity;
 
 import com.example.bclass.R;
@@ -40,7 +41,7 @@ import android.widget.Toast;
  *
  */
 public class NoteActivity extends Activity implements OnScrollListener,Runnable {
-	private String user = "jiachingTest";
+	private String user = "";
 
 	boolean shouldRefresh = true, isRefreshing = false;
 	boolean shouldLoadData = true, isLoadingData = false;
@@ -61,13 +62,19 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 	private List<ParseObject> parseObjectsList;
 	private Thread getDataThread;
 	private Handler loadDataHandler;
+	private UserInstance userInstance;
+	
 
 	private NoteListAdapter listAdapter;
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		getActionBar().hide();
 		setContentView(R.layout.activity_note);
-
+		
+		userInstance = UserInstance.getInstance();
+		user = userInstance.name;
+		Log.v("user",userInstance.name);
+		
 		listView = (ListView) findViewById(R.id.note_listView);
 		viewHead = LayoutInflater.from(this).inflate(R.layout.note_head, null);
 		viewFooter = LayoutInflater.from(this).inflate(R.layout.note_footer,
@@ -90,10 +97,11 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 		loadDataHandler = new Handler() {
 	        public void handleMessage(Message msg) {
 	            super.handleMessage(msg);
-			
+
 				ParseQuery<ParseObject> getDataQuery = database.getQuery("NoteSystem");
 				getDataQuery.orderByDescending("createdAt");
 				getDataQuery.setLimit(listViewCount);
+				getDataQuery.whereGreaterThan("rabbit_count", 10);
 				getDataQuery.findInBackground(new FindCallback<ParseObject>() {
 				    public void done(List<ParseObject> scoreList, ParseException e) {
 				        if (e == null) {
@@ -119,9 +127,14 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 		try {
 			// get data from noteSystem
 
-			List<ParseObject> getData = database.getQuery("NoteSystem")
-					.orderByDescending("createdAt").setLimit(listViewCount)
-					.find();
+			ParseQuery<ParseObject> query = database.getQuery("NoteSystem")
+					.orderByDescending("createdAt").setLimit(listViewCount);
+			
+			if(userInstance.identification.equals("t")) {
+				query.whereGreaterThan("rabbit_count", 10);
+			}
+			List<ParseObject> getData = query.find();
+					
 			note_list = new ArrayList<Note>();
 			
 			if (getData != null) {
@@ -148,9 +161,13 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 		try {
 			// get data from noteSystem
 
-			List<ParseObject> getData = database.getQuery("NoteSystem")
-					.orderByDescending("createdAt").setLimit(listViewCount)
-					.find();
+			ParseQuery<ParseObject> query = database.getQuery("NoteSystem")
+					.orderByDescending("createdAt").setLimit(listViewCount);
+			
+			if(userInstance.identification.equals("t")) {
+				query.whereGreaterThan("rabbit_count", 10);
+			}
+			List<ParseObject> getData = query.find();
 			note_list = new ArrayList<Note>();
 			listView.setOnScrollListener(this);
 			if (getData != null) {
@@ -171,10 +188,15 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 	public void refresh() {
 		try {
 			// get data from noteSystem
-
-			List<ParseObject> getData = database.getQuery("NoteSystem")
-					.orderByDescending("createdAt").setLimit(listViewCount)
-					.find();
+			ParseQuery<ParseObject> query = database.getQuery("NoteSystem")
+					.orderByDescending("createdAt").setLimit(listViewCount);
+			
+			if(userInstance.identification.equals("t")) {
+				query.whereGreaterThan("rabbit_count", 10);
+			}
+			List<ParseObject> getData = query.find();
+					
+			
 			note_list = new ArrayList<Note>();
 			listView.setOnScrollListener(this);
 			if (getData != null) {
@@ -319,18 +341,18 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		try {
-			while(true) {
-				Thread.sleep(3000);
-				Message msg = new Message();
-				msg.what =1;
-				loadDataHandler.sendMessage(msg);
-			}
-			
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			while(true) {
+//				Thread.sleep(3000);
+//				Message msg = new Message();
+//				msg.what =1;
+//				loadDataHandler.sendMessage(msg);
+//			}
+//			
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 	}
 
 }

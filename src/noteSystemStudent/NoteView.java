@@ -1,6 +1,7 @@
 package noteSystemStudent;
 
 import noteReplySystemStudent.ReplyListAdapter;
+import bclassMain.UserInstance;
 
 import com.example.bclass.R;
 
@@ -31,6 +32,7 @@ public class NoteView extends LinearLayout {
 	ImageButton imgBtnDelete;
 	private LayoutInflater inflater;
 	private Note note;
+	private UserInstance userInstance;
 
 	public NoteView(Context context) {
 		super(context);
@@ -52,6 +54,7 @@ public class NoteView extends LinearLayout {
 	protected void onFinishInflate() {
 		super.onFinishInflate();
 		inflater = LayoutInflater.from(getContext());
+		userInstance = UserInstance.getInstance();
 		tvAuthor = (TextView) findViewById(R.id.note_tv_username);
 		tvMessage = (TextView) findViewById(R.id.note_tv_user_message);
 		tvRabbitCount = (TextView) findViewById(R.id.note_tv_rabbit_count);
@@ -98,7 +101,10 @@ public class NoteView extends LinearLayout {
 			btnDisplayReply.setText("目前沒有回覆");
 			btnDisplayReply.getBackground().setAlpha(0);
 		}
-		
+		if(!userInstance.name.equals(note.author)) {
+			imgBtnEditMessage.setVisibility(View.GONE);
+			imgBtnDelete.setVisibility(View.GONE);
+		}
 		//note.update();
 	}
 	private Button.OnClickListener displyReplyListener = new OnClickListener() {
