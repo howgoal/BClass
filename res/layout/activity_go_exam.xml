@@ -41,10 +41,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1.5"
+        android:layout_weight="4.5"
         android:gravity="center|left"
         android:paddingLeft="23dp"
-        android:weightSum="3" >
+        android:weightSum="5" >
 
         <TextView
             android:id="@+id/textView3"
@@ -54,21 +54,26 @@
             android:text="說明 :"
             android:textSize="23sp" />
 
-        <TextView
-            android:id="@+id/textDesrcipt"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="2"
-            android:gravity="center"
-            android:text="..."
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textSize="23sp" />
+        <ScrollView
+	        android:layout_width="0dp"
+	        android:layout_weight="4"
+	        android:layout_height="match_parent"
+	        android:paddingLeft="23dp" >
+	        <TextView
+	            android:id="@+id/textDesrcipt"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:gravity="center"
+	            android:text="..."
+	            android:textAppearance="?android:attr/textAppearanceLarge"
+	            android:textSize="18sp" />
+	    </ScrollView>
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4.5"
+        android:layout_weight="2.5"
         android:paddingLeft="23dp" >
 
         <LinearLayout
@@ -82,7 +87,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:gravity="center"
         android:orientation="horizontal" >
 
@@ -90,7 +95,7 @@
             android:id="@+id/examTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="投票日期 :  "
+            android:text="考試日期 :  "
             android:textSize="25sp" />
 
         <TextView
