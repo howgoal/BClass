@@ -2,36 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/sky_back"
+    android:layout_height="fill_parent"
+    android:weightSum="10"
+    android:background="#FFFFFF"
     android:dividerHeight="10dp"
     android:orientation="vertical" >
 
     <LinearLayout
         android:id="@+id/note_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#ffffff"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:weightSum="10"
+        android:background="#009688"
         android:orientation="horizontal" >
         
-    <ImageButton
-        android:id="@+id/note_buttonGoBack"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/custom_btn_orange" />
-
-    <ImageButton
-        android:id="@+id/note_buttonCreate"
-        android:layout_width="62dp"
-        android:layout_height="54dp"
-        android:src="@drawable/custom_btn_orange" />
+	    <ImageButton
+	        android:id="@+id/note_buttonGoBack"
+	        android:layout_width="0dp"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1"
+	        android:background="#00000000"
+	        android:scaleType="fitCenter"
+	        android:src="@drawable/btn_back_simple" />
+	
+	    <ImageButton
+	        android:id="@+id/note_buttonCreate"
+	        android:layout_width="0dp"
+	        android:layout_height="fill_parent"
+	        android:layout_weight="1.5"
+	        android:background="#00000000"
+	        android:scaleType="fitCenter"
+	        android:scaleX="0.9"
+	        android:scaleY="0.9"
+	        android:src="@drawable/btn_note" />
 
     </LinearLayout>
 
     <ListView
         android:id="@+id/note_listView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9"
         android:divider="@null"
         android:dividerHeight="10dp"
         android:paddingBottom="10dp"

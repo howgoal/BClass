@@ -1,6 +1,6 @@
 package bclassStudent;
 
-import noteSystem.NoteActivity;
+import noteSystemStudent.NoteActivity;
 import bclassMain.MainActivity;
 
 import com.example.bclass.R;
