@@ -102,11 +102,15 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 				ParseQuery<ParseObject> getDataQuery = database.getQuery("NoteSystem");
 				getDataQuery.orderByDescending("createdAt");
 				getDataQuery.setLimit(listViewCount);
-				getDataQuery.whereGreaterThan("rabbit_count", 10);
+				if(userInstance.identification.equals("t")) {
+					Log.v("userInstance",userInstance.identification);
+					getDataQuery.whereGreaterThan("rabbit_count", 10);
+				}
 				getDataQuery.findInBackground(new FindCallback<ParseObject>() {
 				    public void done(List<ParseObject> scoreList, ParseException e) {
 				        if (e == null) {
 				        	note_list = new ArrayList<Note>();
+				        	
 				        	for (ParseObject i : scoreList) {
 								note_list.add(new Note(i));
 							}
@@ -166,6 +170,7 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 					.orderByDescending("createdAt").setLimit(listViewCount);
 			
 			if(userInstance.identification.equals("t")) {
+				Log.v("userInstance",userInstance.identification);
 				query.whereGreaterThan("rabbit_count", 10);
 			}
 			List<ParseObject> getData = query.find();
@@ -345,7 +350,7 @@ public class NoteActivity extends Activity implements OnScrollListener,Runnable 
 		// TODO Auto-generated method stub
 		try {
 			while(true) {
-				Thread.sleep(3000);
+				Thread.sleep(4000);
 				if(status.getStatus() == false) {
 					
 					Message msg = new Message();
